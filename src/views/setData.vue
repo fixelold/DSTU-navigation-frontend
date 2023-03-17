@@ -1,25 +1,43 @@
 <template>
 
   <div class="setData">
-      <input checked="" id="data" name="action" type="radio">
-      <label for="data">Введите данные</label>
+    <body>
+    <form>
+      <input checked="" id="signin" v-on:click="Vvod" name="action" type="radio" value="signin">
+      <label for="signin">Ввод аудиторий</label>
+
+      <input id="signup" v-on:click="signIN" name="action" type="radio" value="signup" >
+      <label for="signup">Войти</label>
+
       <div id="wrapper">
         <div id="arrow"></div>
-        <input id="start" v-model="start" placeholder="Начальная аудитория" type="text">
-        <input id="end" v-model="end"  placeholder="Конечная аудитория" type="text">
+        <input id="email" :placeholder='one' type="text">
+        <input id="pass" :placeholder='two' type="text">
       </div>
-      <button type="submit"  v-on:click="setCookie">Проложить путь</button>
-  </div>
+      <button type="submit">
+        <span>
+          <br>
+          Проложить путь
+          <br>
+          Войти
+        </span>
+      </button>
+    </form>
 
-  <Map :start='s'></Map>
+    </body>
+    </div>
 </template>
   
 <script>
+import { throwStatement } from '@babel/types';
+
   export default {
   data() {
     return {
       start: '',
       end: '',
+      one: 'Начальная аудитория',
+      two: 'Конечная аудитория'
     };
   },
   components: {
@@ -31,31 +49,53 @@
       this.$cookies.set("end",this.end,);
       this.$cookies.set("start",this.start);
       window.location.href = "/map";
+    },
+
+    signIN() {
+      this.one = "Логин администратора"
+      this.two = "Пароль администратора"
+    },
+
+    Vvod() {
+      this.one = "Начальная аудитория"
+      this.two = "Конечная аудитория"
     }
   }
 }
 
 </script>
   
-  <style>
+<style>
   @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
-  
+
   html, body { margin: 0; }
-  
+
   :focus { outline: none; }
   ::-webkit-input-placeholder { color: #DEDFDF; }
   ::-moz-placeholder { color: #DEDFDF; }
   :-moz-placeholder { color: #DEDFDF; }
   ::-ms-input-placeholder { color: #DEDFDF; }
-  
+
   body {
     background: #6ED0F6;
     color: #fff;
     font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  
-  .setData {
+
+  #wrapper, label, #arrow, button span { transition: all .5s cubic-bezier(.6,0,.4,1); }
+
+  #wrapper { overflow: hidden; }
+
+  #signin:checked ~ #wrapper { height: 178px; }
+  #signin:checked ~ #wrapper #arrow { left: 100px; }
+  #signin:checked ~ button span { transform: translate3d(0,-72px,0); }
+
+  #signup:checked ~ #wrapper { height: 178; }
+  #signup:checked ~ #wrapper #arrow { left: 260px; }
+  #signup:checked ~ button span { transform: translate3d(0,-144px,0); }
+
+  form {
     width: 450px;
     height: 370px;
     margin: -185px -225px;
@@ -63,9 +103,9 @@
     left: 50%;
     top: 50%;
   }
-  
+
   input[type=radio] { display: none; }
-  
+
   label {
     cursor: pointer;
     display: inline-block;
@@ -75,9 +115,14 @@
     margin-bottom: 30px;
     text-transform: uppercase;
   }
-  
+  label:hover {
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+    opacity: 1;
+  }
+  label[for="signin"] { margin-right: 20px; }
+  label[for="reset"] { float: right; }
   input[type=radio]:checked + label { opacity: 1; }
-  
+
   input[type=text],
   input[type=password] {
     background: #fff;
@@ -116,23 +161,22 @@
   button:hover {
     background: #007BA5;
   }
-  
-  
+
+  #arrow {
+    height: 0;
+    width: 0;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: relative;
+    left: 32px;
+  }
+
+
   #hint {
     width: 100%;
     text-align: center;
     position: absolute;
     bottom: 20px;
   }
-  </style>
-
-
-
-<!-- <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'HomeView'
-}
-</script> -->
+</style>
