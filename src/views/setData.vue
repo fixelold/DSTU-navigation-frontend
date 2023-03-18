@@ -93,14 +93,15 @@
       },
 
       callMap() {
-        this.setCookie;
+        this.$cookies.set("end",this.dataTwo,);
+        this.$cookies.set("start",this.dataOne);
         window.location.href = "/map";
       },
 
-      setCookie() {
-        this.$cookies.set("end",this.end,);
-        this.$cookies.set("start",this.start);
-      },
+      // setCookie() {
+      //   this.$cookies.set("end",this.dataTwo,);
+      //   this.$cookies.set("start",this.dataOne);
+      // },
   
       signInData() {
         this.one = "Логин администратора"
