@@ -89,7 +89,7 @@
       },
 
       signin() {
-
+        window.location.href = "/admin-panel";
       },
 
       callMap() {
@@ -97,11 +97,6 @@
         this.$cookies.set("start",this.dataOne);
         window.location.href = "/map";
       },
-
-      // setCookie() {
-      //   this.$cookies.set("end",this.dataTwo,);
-      //   this.$cookies.set("start",this.dataOne);
-      // },
   
       signInData() {
         this.one = "Логин администратора"
@@ -129,7 +124,7 @@
   
 </script>
     
-  <style>
+<style>
     @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
   
     html, body { margin: 0; }
