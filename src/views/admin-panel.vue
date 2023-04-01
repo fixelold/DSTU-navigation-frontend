@@ -6,10 +6,10 @@
 
         <div id="wrapper">
           <div id="arrow"></div>
-          <input id="email"  v-model="number" placeholder="Номер аудитории" type="text">
-          <input id="pass" v-model="dataUpdate" placeholder="Новое описания" type="text">
+          <input id="email"  v-model="auditory_id" placeholder="Номер аудитории" type="text">
+          <input id="pass" v-model="description" placeholder="Новое описания" type="text">
         </div>
-        <button type="submit" v-on:click="distributor">
+        <button type="submit" v-on:click="update">
           <span>
             <br>
             Обновить описание
@@ -18,7 +18,7 @@
         </button>
     </div>
     
-        <footer class="footer">
+      <footer class="footer">
       <div class="waves">
         <div class="wave" id="wave1"></div>
         <div class="wave" id="wave2"></div>
@@ -49,6 +49,30 @@
 </template>
       
 <script>
+import authHeader from '../auth-header';
+import axios from 'axios'
+  export default {
+      data() {
+      return {
+        auditory_id: '',
+        description: '',
+        jwtToken: '',
+    };
+  },
+
+methods: {
+  async update() {
+    this.jwtToken = this.$cookies.get("token");
+    const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
+
+      await axios({
+        method: 'post',
+        url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
+        data: json 
+    }).then(response => {this.coordinates = response.data});
+    }
+  }
+}
 
 </script>
       

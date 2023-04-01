@@ -49,79 +49,105 @@
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></component>
 
   <DataModal v-show="isModalVisible"  @close="closeModal"></DataModal>
+  <LoginModal v-show="isModalVisibleLogin"  @close="closeLoginModal"></LoginModal>
 </template>
     
 <script>
-    import DataModal from '../modal/data-modal.vue'
-    export default {
-    components: {
-      DataModal,
-    },
+  import axios from 'axios'
+  import DataModal from '../modal/data-modal.vue'
+  export default {
+  components: {
+    DataModal,
+  },
 
-    data() {
-      return {
-        isModalVisible: false,
-        radioValue: 'aud',
-        dataOne: '',
-        dataTwo: '',
-        one: 'Начальная аудитория',
-        two: 'Конечная аудитория'
-      };
-    },
-  
-    methods: {
-      distributor() {
-        if (this.radioValue == "aud") {
-          if (this.dataOne == '' && this.dataTwo == '') {
-            this.showModal();
-          }else {
-            this.callMap()
-          }
-        } else if (this.radioValue == "login") {
-          if (this.dataOne == '' && this.dataTwo == '') {
-            this.showModal();
-          }else {
-            this.signin()
-          }
-        } else {
-          console.log("Error")
+  data() {
+    return {
+      isModalVisible: false,
+      isModalVisibleLogin: false,
+      radioValue: 'aud',
+      dataOne: '',
+      dataTwo: '',
+      one: 'Начальная аудитория',
+      two: 'Конечная аудитория',
+      jwtToken: '',
+      responseStatus: '',
+    };
+  },
+
+  methods: {
+    distributor() {
+      if (this.radioValue == "aud") {
+        if (this.dataOne == '' && this.dataTwo == '') {
+          this.showModal();
+        }else {
+          this.callMap()
         }
-      },
-
-      signin() {
-        window.location.href = "/admin-panel";
-      },
-
-      callMap() {
-        this.$cookies.set("end",this.dataTwo,);
-        this.$cookies.set("start",this.dataOne);
-        window.location.href = "/map";
-      },
-  
-      signInData() {
-        this.one = "Логин администратора"
-        this.two = "Пароль администратора"
-        this.dataOne = ""
-        this.dataTwo = ""
-      },
-  
-      setData() {
-        this.one = "Начальная аудитория"
-        this.two = "Конечная аудитория"
-        this.dataOne = ""
-        this.dataTwo = ""
-      },
-
-      showModal() {
-        this.isModalVisible = true;
-      },
-
-      closeModal() {
-        this.isModalVisible = false;
+      } else if (this.radioValue == "login") {
+        if (this.dataOne == '' && this.dataTwo == '') {
+          this.showModal();
+        }else {
+          this.signin().then(() => {
+            console.log
+            if (this.jwtToken == '') {
+              this.showLoginModal();
+            }
+          })
+        }
+      } else {
+        console.log("Error")
       }
+    },
+
+    async signin() {
+    const json = JSON.stringify({login: this.dataOne, password: this.dataTwo});
+        await axios({
+            method: 'post',
+            url: 'http://92.63.99.78:8080/api/v1/user/signin', 
+            data: json 
+        }).then(response => {
+          this.jwtToken = response.data['token'];
+          this.$cookies.set("token", this.jwtToken)
+          window.location.href = "/admin-panel";});
+    },
+
+    callMap() {
+      this.$cookies.set("end",this.dataTwo,);
+      this.$cookies.set("start",this.dataOne);
+      window.location.href = "/map";
+    },
+
+    signInData() {
+      this.one = "Логин администратора"
+      this.two = "Пароль администратора"
+      this.dataOne = ""
+      this.dataTwo = ""
+    },
+
+    setData() {
+      this.one = "Начальная аудитория"
+      this.two = "Конечная аудитория"
+      this.dataOne = ""
+      this.dataTwo = ""
+    },
+
+    showModal() {
+      this.isModalVisible = true;
+    },
+
+    closeModal() {
+      this.isModalVisible = false;
+    },
+
+    showLoginModal() {
+      this.isModalVisibleLogin = true;
+    },
+
+    closeLoginModal() {
+      this.isModalVisibleLogin = false;
     }
   }
-  
+}
+
 </script>
     
 <style>
