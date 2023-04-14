@@ -6,6 +6,7 @@
         <div class="description">
             <h1>{{startDescription}}</h1>
             <h1>{{endDescription}}</h1>
+            <button class="btn" type="submit" v-on:click="drawPathTransitionToAud"></button>
         </div>
   </div>
   </body>
@@ -28,6 +29,10 @@ export default {
       endDescription: '',
       startAudPoints: [],
       endAudPoints: [],
+      transitionSectors: [],
+      transition: 2,
+      stairs: 1,
+      transitionNumber: 0,
   };
 },
 
@@ -35,16 +40,53 @@ export default {
     controller() {
         this.start = this.$cookies.get("start");
         this.end = this.$cookies.get("end");
-        this.drawImage()
-        this.getSectors().then(() => {
-            this.getCoordinates().then(() => {
-                this.drawPath().then(() => {
-                    this.getAudDescription().then(() => {
+
+        if (this.start[2] == this.end[2]) {
+            this.stairs = 2;
+            this.drawImage()
+            this.getSectors().then(() => {
+                this.getCoordinates().then(() => {
+                    this.drawPath().then(() => {
+                        this.getAudDescription().then(() => {
+                            this.getAudPoints().then(() => {this.coloringAudience()})
+                        })
+                    })
+                })
+            })
+        } else {
+            this.transition = 1;
+            this.drawImage()
+            this.getSectors().then(() => {
+                this.transitionNumber = this.sectors[0];
+                this.transitionSectors = this.sectors;
+                this.sectors = [];
+                this.sectors.push(this.transitionSectors[0]);
+                this.sectors.push(this.transitionSectors[1]);
+                this.getCoordinates().then(() => {
+                    this.drawPath().then(() => {
                         this.getAudPoints().then(() => {this.coloringAudience()})
                     })
                 })
             })
-        })
+        }
+      },
+
+      drawPathTransitionToAud() {
+        this.transition = 2;
+        this.start = '1-319';
+        this.end = '1-333';
+        this.stairs = 2;
+        this.clearImage()
+        this.drawImage()
+            this.getSectors().then(() => {
+                this.getCoordinates().then(() => {
+                    this.drawPath().then(() => {
+                        this.getAudDescription().then(() => {
+                            this.getAudPoints().then(() => {this.coloringAudience()})
+                        })
+                    })
+                })
+            })
       },
 
       async getAudDescription() {
@@ -58,12 +100,18 @@ export default {
       
       async getSectors() {
           await axios 
-              .get("http://92.63.99.78:8080/api/v1/path-building?start=" + this.start + "&end=" + this.end)
+              .get("http://92.63.99.78:8080/api/v1/get-sectors?start=" + this.start + "&end=" + this.end + "&type_transtion_sector=" + this.stairs)
               .then(response => {this.sectors = response.data['sectors']})
       },
       async getCoordinates() {
           
-          const json = JSON.stringify({ start: this.start, end: this.end, sectors: toRaw(this.sectors)});
+          const json = JSON.stringify({ 
+            start: this.start, 
+            end: this.end, 
+            sectors: toRaw(this.sectors), 
+            transition: this.transition, 
+            transition_number: this.transitionNumber});
+            console.log("data json - ", json)
           await axios({
               method: 'post',
               url: 'http://92.63.99.78:8080/api/v1/draw-path/points', 
@@ -80,7 +128,21 @@ export default {
               this.ctx.drawImage(this.img, 0, 0);
           }
       },
+
+      clearImage() {
+            this.ctx.clearRect(0, 0, 500, 1000);
+            this.ctx.globalAlpha = 1.0;
+            this.canvas = this.$refs.canRef;
+            this.ctx = this.canvas.getContext('2d');
+            this.img = new Image();
+            this.img.src = this.items[0].src;
+            this.img.onload = () => {
+            this.ctx.drawImage(this.img, 0, 0);
+          }
+      },
+
       async drawPath() {
+        console.log("coordinates - ", this.coordinates)
           for (let i = 0; i < this.coordinates.length; i++) {
               var c = document.getElementById("c");
               var ctx = c.getContext("2d");   
@@ -93,7 +155,10 @@ export default {
 
       async getAudPoints() {
         await axios 
-              .get("http://92.63.99.78:8080/api/v1/draw-path/aud-points?start=" + this.start + "&end=" + this.end)
+              .get("http://92.63.99.78:8080/api/v1/draw-path/aud-points?start=" + this.start + 
+              "&end=" + this.end + 
+              "&transition=" + this.transition + 
+              "&transition_number=" + this.transitionNumber)
               .then(response => {
                 this.startAudPoints = response.data['start'];
                 this.endAudPoints = response.data['end'];
