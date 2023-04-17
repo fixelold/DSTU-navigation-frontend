@@ -143,7 +143,6 @@ export default {
       },
 
       async drawPath() {
-        console.log("coordinates - ", this.coordinates)
           for (let i = 0; i < this.coordinates.length; i++) {
               var c = document.getElementById("c");
               var ctx = c.getContext("2d");   

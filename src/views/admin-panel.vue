@@ -66,6 +66,11 @@ methods: {
     const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
 
       await axios({
+        headers: {
+          'Accept' : 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          Authorization: "Bearer " + this.jwtToken,
+        },
         method: 'post',
         url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
         data: json 
