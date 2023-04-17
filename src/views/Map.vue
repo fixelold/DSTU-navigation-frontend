@@ -43,6 +43,7 @@ export default {
 
         if (this.start[2] == this.end[2]) {
             this.stairs = 2;
+            console.log("transition - ", this.transition)
             this.drawImage()
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
@@ -114,7 +115,7 @@ export default {
             console.log("data json - ", json)
           await axios({
               method: 'post',
-              url: 'http://92.63.99.78:8080/api/v1/draw-path/points', 
+              url: 'http://92.63.99.78:8080/api/v1/points/points', 
               data: json 
           }).then(response => {this.coordinates = response.data});
       },
@@ -155,7 +156,7 @@ export default {
 
       async getAudPoints() {
         await axios 
-              .get("http://92.63.99.78:8080/api/v1/draw-path/aud-points?start=" + this.start + 
+              .get("http://92.63.99.78:8080/api/v1/points/aud-points?start=" + this.start + 
               "&end=" + this.end + 
               "&transition=" + this.transition + 
               "&transition_number=" + this.transitionNumber)
@@ -166,6 +167,7 @@ export default {
       },
 
       async coloringAudience() {
+        console.log("data 555 - ", this.startAudPoints)
         var c = document.getElementById("c");
         var ctx = c.getContext("2d");   
         ctx.beginPath();
