@@ -5,7 +5,7 @@
         <button type="submit" v-on:click="showModal">Обновить описание
         </button>
 
-        <button type="submit" v-on:click="update">
+        <button type="submit" v-on:click="showImportantPlaces">
           Важные места
         </button>
       </div>
@@ -35,18 +35,20 @@
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></component>
 
-  <!-- <DataModal v-show="isModalVisible"  @close="closeModal"></DataModal> -->
   <UpdateDescriptionModal v-show="isModalVisible"  @close="closeModal"></UpdateDescriptionModal>
+  <ImportantPlacesModal v-show="isImportantPlaces"  @close="closeImportantPlaces"></ImportantPlacesModal>
 
     
 </template>
       
 <script>
 import UpdateDescriptionModal from '../modal/update-description-modal.vue'
+import ImportantPlacesModal from '../modal/important-places-modal.vue'
 import axios from 'axios'
   export default {
     components: {
       UpdateDescriptionModal,
+      ImportantPlacesModal,
     },
       data() {
       return {
@@ -54,6 +56,7 @@ import axios from 'axios'
         description: '',
         jwtToken: '',
         isModalVisible: false,
+        isImportantPlaces: false,
     };
   },
 
@@ -75,12 +78,19 @@ methods: {
     },
 
     showModal() {
-      console.log("Work")
       this.isModalVisible = true;
     },
 
     closeModal() {
       this.isModalVisible = false;
+    },
+
+    showImportantPlaces() {
+      this.isImportantPlaces = true;
+    },
+
+    closeImportantPlaces() {
+      this.isImportantPlaces = false;
     },
   }
 }
