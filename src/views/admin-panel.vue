@@ -1,22 +1,14 @@
 <template>
     <body>
-        <div class="setData">
-        <input checked="" id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud">
-        <label for="signin">Введите данные для обновления</label>
 
-        <div id="wrapper">
-          <div id="arrow"></div>
-          <input id="email"  v-model="auditory_id" placeholder="Номер аудитории" type="text">
-          <input id="pass" v-model="description" placeholder="Новое описания" type="text">
-        </div>
-        <button type="submit" v-on:click="update">
-          <span>
-            <br>
-            Обновить описание
-            <br>
-          </span>
+      <div class="setData">
+        <button type="submit" v-on:click="showModal">Обновить описание
         </button>
-    </div>
+
+        <button type="submit" v-on:click="update">
+          Важные места
+        </button>
+      </div>
     
       <footer class="footer">
       <div class="waves">
@@ -43,20 +35,25 @@
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></component>
 
-  <DataModal v-show="isModalVisible"  @close="closeModal"></DataModal>
+  <!-- <DataModal v-show="isModalVisible"  @close="closeModal"></DataModal> -->
+  <UpdateDescriptionModal v-show="isModalVisible"  @close="closeModal"></UpdateDescriptionModal>
 
     
 </template>
       
 <script>
-import authHeader from '../auth-header';
+import UpdateDescriptionModal from '../modal/update-description-modal.vue'
 import axios from 'axios'
   export default {
+    components: {
+      UpdateDescriptionModal,
+    },
       data() {
       return {
         auditory_id: '',
         description: '',
         jwtToken: '',
+        isModalVisible: false,
     };
   },
 
@@ -75,7 +72,16 @@ methods: {
         url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
         data: json 
     }).then(response => {this.coordinates = response.data});
-    }
+    },
+
+    showModal() {
+      console.log("Work")
+      this.isModalVisible = true;
+    },
+
+    closeModal() {
+      this.isModalVisible = false;
+    },
   }
 }
 

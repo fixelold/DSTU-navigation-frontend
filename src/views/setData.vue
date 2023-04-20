@@ -87,10 +87,9 @@
           this.showModal();
         }else {
           this.signin().then(() => {
-            console.log
-            if (this.jwtToken == '') {
-              this.showLoginModal();
-            }
+            // if (this.jwtToken == '') {
+            //   this.showLoginModal();
+            // }
           })
         }
       } else {
