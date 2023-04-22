@@ -166,7 +166,6 @@ export default {
       },
 
       async coloringAudience() {
-        console.log("data 555 - ", this.startAudPoints)
         var c = document.getElementById("c");
         var ctx = c.getContext("2d");   
         ctx.beginPath();

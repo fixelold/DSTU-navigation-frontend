@@ -3,13 +3,13 @@
             <div class="importantPlaces">
                 <div class="modal-close" @click="close">&#10006;<br><br></div>
 
-                <input checked="" id="create" v-model="test" v-on:click="createData" name="action" type="radio" value="create">
+                <input checked="" id="create" v-model="radioData" v-on:click="createData" name="action" type="radio" value="create">
                 <label for="create">Создать</label>
 
-                <input id="update" v-model="test" v-on:click="updateData" name="action" type="radio" value="update">
+                <input id="update" v-model="radioData" v-on:click="updateData" name="action" type="radio" value="update">
                 <label for="update">Обновить</label>
         
-                <input id="delete" v-model="test" v-on:click="deleteData" name="action" type="radio" value="delete" >
+                <input id="delete" v-model="radioData" v-on:click="deleteData" name="action" type="radio" value="delete" >
                 <label for="delete">Удалить</label>
         
                 <div id="wrapper">
@@ -43,13 +43,14 @@ import axios from 'axios'
         auditory_id: '',
         description: '',
         jwtToken: '',
-        test: 'create',
+        radioData: 'create',
         one: 'Введите название места',
         two: 'Введите номер аудитории',
         three: 'Введите номер обновляемой аудитории',
         oneData: '',
         twoData: '',
         threeData: '',
+        auditory_id: '',
     };
   },
 
@@ -61,27 +62,70 @@ import axios from 'axios'
         },
 
     methods: {
-    async update() {
-        this.jwtToken = this.$cookies.get("token");
-        const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
+    // async update() {
+    //     this.jwtToken = this.$cookies.get("token");
+    //     const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
 
-        await axios({
+    //     await axios({
+    //         headers: {
+    //         'Accept' : 'application/json',
+    //         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    //         Authorization: "Bearer " + this.jwtToken,
+    //         },
+    //         method: 'post',
+    //         url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
+    //         data: json 
+    //     }).then(response => {this.coordinates = response.data});
+    //     },
+
+        distributor() {
+          if (this.radioData == "create") {
+            this.read().then(() => {this.create()})
+
+          } else if (this.radioData == "update") {
+            this.update();
+
+          } else if (this.radioData == "delete") {
+            this.delete();
+
+          } else {
+            console.log("Error")
+          }
+        },
+
+        async create() {
+          this.jwtToken = this.$cookies.get("token");
+
+          const json = JSON.stringify({ name: this.oneData, auditory_id: this.auditory_id});
+          await axios({
             headers: {
             'Accept' : 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             Authorization: "Bearer " + this.jwtToken,
             },
             method: 'post',
-            url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
+            url: 'http://92.63.99.78:8080/api/v1/places/create', 
             data: json 
-        }).then(response => {this.coordinates = response.data});
+        });
         },
+
+        async read() {
+          await axios 
+              .get("http://92.63.99.78:8080/api/v1/auditory?number=" + this.twoData)
+              .then(response => { this.auditory_id = response.data.id
+            })
+        },
+
+        async update() {},
+
+        async delete() {},
 
         close: function () {
             this.$emit('close');
         },
 
         createData() {
+            this.radioData = "create"
             this.one = "Введите название места"
             this.two = "Введите номер аудитории"
             this.three = "Введите номер обновляемой аудитории"
