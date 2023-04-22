@@ -76,7 +76,11 @@ import axios from 'axios'
             })
 
           } else if (this.radioData == "delete") {
-            this.delete();
+            console.log("one data - ", this.oneData)
+            this.twoData = this.oneData
+            this.read().then(() => {
+              this.delete()
+            })
 
           } else {
             console.log("Error")
@@ -122,7 +126,19 @@ import axios from 'axios'
           });
           },
 
-        async delete() {},
+        async delete() {
+          this.jwtToken = this.$cookies.get("token");
+
+          await axios({
+            headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            Authorization: "Bearer " + this.jwtToken,
+            },
+            method: 'delete',
+            url: 'http://92.63.99.78:8080/api/v1/places/delete?id=' + this.auditory_id, 
+          });
+        },
 
         close: function () {
             this.$emit('close');
