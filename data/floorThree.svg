@@ -14,6 +14,11 @@
 	.st8{font-size:12.71px;}
 	.st9{font-size:11px;}
 	.st10{font-size:13.24px;}
+	.st11{font-size:12.2323px;}
+	.st12{font-size:11.7185px;}
+	.st13{font-size:13.9328px;}
+	.st14{font-size:10.2812px;}
+	.st15{font-size:12.66px;}
 </style>
 <rect class="st0" width="1678.9" height="925.1"/>
 <rect x="3.5" y="25.5" class="st1" width="7" height="198"/>
@@ -53,8 +58,8 @@
 <rect x="128.5" y="605.5" class="st1" width="58" height="3"/>
 <rect x="127.5" y="571.5" class="st1" width="58" height="3"/>
 <rect x="128.5" y="533.5" class="st1" width="58" height="3"/>
-<rect x="127.5" y="467.5" class="st1" width="58" height="3"/>
-<rect x="127.5" y="430.5" class="st1" width="58" height="3"/>
+<rect x="127.5" y="467.5" class="st1" width="59" height="3"/>
+<rect x="127.5" y="430.5" class="st1" width="59" height="3"/>
 <rect x="128.5" y="395.5" class="st1" width="58" height="3"/>
 <rect x="127.5" y="361.5" class="st1" width="58" height="3"/>
 <rect x="128.5" y="327.5" class="st1" width="58" height="3"/>
@@ -101,7 +106,7 @@
 <rect x="398.5" y="504.5" class="st1" width="3" height="58"/>
 <rect x="433.5" y="504.5" class="st1" width="3" height="58"/>
 <rect x="467.5" y="504.5" class="st1" width="3" height="58"/>
-<rect x="493.5" y="504.5" class="st1" width="3" height="58"/>
+<rect x="502" y="504.5" class="st1" width="3" height="58"/>
 <rect x="536.5" y="504.5" class="st1" width="3" height="58"/>
 <rect x="568.5" y="504.5" class="st1" width="3" height="58"/>
 <rect x="621.5" y="504.5" class="st1" width="3" height="58"/>
@@ -109,8 +114,8 @@
 <rect x="218.5" y="501.5" class="st1" width="442" height="3"/>
 <rect x="217.5" y="473.5" class="st1" width="461" height="3"/>
 <rect x="290.5" y="408.5" class="st1" width="3" height="65"/>
-<rect x="440.5" y="408.5" class="st1" width="3" height="65"/>
-<rect x="478.5" y="408.5" class="st1" width="3" height="65"/>
+<rect x="433.5" y="408.5" class="st1" width="3" height="65"/>
+<rect x="467.5" y="407.8" class="st1" width="3" height="65"/>
 <rect x="621.5" y="408.5" class="st1" width="3" height="65"/>
 <rect x="666.5" y="577.5" class="st1" width="350" height="7"/>
 <rect x="1009.5" y="501.5" class="st1" width="7" height="76"/>
@@ -201,7 +206,7 @@
 <text transform="matrix(0.9 0 0 1 120.4297 207.7803)" class="st3 st4">1-321</text>
 <text transform="matrix(0.97 0 0 1 150.4297 172.8901)" class="st3 st6">1-321а</text>
 <text transform="matrix(0.9 0 0 1 227.96 538.5)" class="st3 st4">1-341</text>
-<text transform="matrix(0.9 0 0 1 318.96 538.5)" class="st3 st4">1-340</text>
+<text transform="matrix(0.9 0 0 1 318.96 538.5)" class="st3 st4">1-343</text>
 <text transform="matrix(1 0 0 1 109.82 780.54)" class="st3 st7">с/у</text>
 <text transform="matrix(1 0 0 1 229.11 389.05)" class="st3 st7">с/у</text>
 <text transform="matrix(0.81 0 0 1 220.25 437.8203)" class="st3 st8">Ле</text>
@@ -218,4 +223,17 @@
 <text transform="matrix(0.68 0 0 1 64.9902 780.6904)" class="st3 st10">с</text>
 <text transform="matrix(0.68 0 0 1 69.165 780.6904)" class="st3 st10">т</text>
 <text transform="matrix(0.68 0 0 1 72.8032 780.6904)" class="st3 st10">ница</text>
+<text transform="matrix(0.9 0 0 1 345.834 446.6443)" class="st3 st4">1-310</text>
+<rect x="502" y="408.5" class="st1" width="3" height="65"/>
+<text transform="matrix(0.911 0 0 1 436.5002 446.8494)" class="st3 st11">1-309</text>
+<text transform="matrix(0.8484 0 0 1 470.5001 445.6406)" class="st3 st12">1-305а</text>
+<text transform="matrix(0.9 0 0 1 544.3286 445.4999)" class="st3 st4">1-305</text>
+<text transform="matrix(0.9 0 0 1 627.6638 445.705)" class="st3 st4">Буфет</text>
+<text transform="matrix(0.7641 0 0 1 401.5 538.5)" class="st3 st13">1-344</text>
+<text transform="matrix(0.7641 0 0 1 437.75 538.5)" class="st3 st13">1-346</text>
+<text transform="matrix(0.859 0 0 1 470.5 538.5)" class="st3 st14">1-347а</text>
+<text transform="matrix(0.7641 0 0 1 507.4983 538.623)" class="st3 st13">1-347</text>
+<text transform="matrix(0.7186 0 0 1 541.9326 537.1832)" class="st3 st15">1-348</text>
+<text transform="matrix(0.7641 0 0 1 582.9955 538.7051)" class="st3 st13">1-349</text>
+<text transform="matrix(0.7641 0 0 1 626.5142 538.8721)" class="st3 st13">1-350мм</text>
 </svg>
