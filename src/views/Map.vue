@@ -634,11 +634,15 @@ export default {
       },
 
       drawPathTransitionToAud() {
+        this.items = [];
+        this.floor = this.nextFloor
         if (this.end[2] == 4) {
             this.transitionNumber = this.transitionNumber.toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '4' + this.transitionNumber[3] 
+            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '4' + this.transitionNumber[3]
+            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + '4' + this.transitionNumber[3]
+            this.transitionNumber = parseInt(this.transitionNumber)
         }
-        this.transition = 2;
+        this.transition = 3;
         this.stairs = 1;
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
@@ -661,7 +665,6 @@ export default {
       },
       
       async getSectors() {
-        console.log("get sector data - ", this.start, this.end)
           await axios 
               .get("http://92.63.99.78:8080/api/v1/get-sectors?start=" + this.start + "&end=" + this.end + "&type_transtion_sector=" + this.stairs)
               .then(response => {this.sectors = response.data['sectors']})
