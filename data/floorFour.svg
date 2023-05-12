@@ -27,19 +27,27 @@
 	.st21{font-size:13.9328px;}
 	.st22{font-size:10.2812px;}
 	.st23{font-size:11.7364px;}
-	.st24{font-size:11.2155px;}
-	.st25{font-size:12.3418px;}
-	.st26{font-size:9.4459px;}
-	.st27{font-size:11.8325px;}
-	.st28{font-size:9.2969px;}
-	.st29{font-size:14.4423px;}
-	.st30{font-size:11.3734px;}
-	.st31{font-size:11.1822px;}
-	.st32{font-size:7.1435px;}
-	.st33{font-size:8.0846px;}
-	.st34{font-size:7.7699px;}
-	.st35{font-size:9.3504px;}
-	.st36{font-size:6.9933px;}
+	.st24{font-size:8.8176px;}
+	.st25{font-size:7.711px;}
+	.st26{font-size:11.2369px;}
+	.st27{font-size:9.5259px;}
+	.st28{font-size:11.3759px;}
+	.st29{font-size:11.9324px;}
+	.st30{font-size:12.3418px;}
+	.st31{font-size:9.4459px;}
+	.st32{font-size:11.8325px;}
+	.st33{font-size:10.2023px;}
+	.st34{font-size:9.2969px;}
+	.st35{font-size:14.4423px;}
+	.st36{font-size:11.3734px;}
+	.st37{font-size:11.1822px;}
+	.st38{font-size:7.1435px;}
+	.st39{font-size:8.0846px;}
+	.st40{font-size:7.7699px;}
+	.st41{font-size:9.3504px;}
+	.st42{font-size:6.9933px;}
+	.st43{font-size:10.3512px;}
+	.st44{font-size:7.1813px;}
 </style>
 <g id="Слой_2_00000013167293274023752980000018160513616036727993_">
 	<rect class="st0" width="1678.9" height="925.1"/>
@@ -87,14 +95,14 @@
 		<text transform="matrix(0.9 0 0 1 37.1597 80.73)" class="st3 st4">1-421а</text>
 		<text transform="matrix(0.9 0 0 1 123.8799 80.5898)" class="st3 st4">1-419</text>
 		<text transform="matrix(0.9 0 0 1 15.5552 186)" class="st3 st5">1-422</text>
-		<text transform="matrix(0.4991 0 0 1 192.1 65.9984)" class="st3 st6">1-418</text>
+		<text transform="matrix(0.4991 0 0 1 192.1001 65.9985)" class="st3 st6">1-418</text>
 		<text transform="matrix(0.9 0 0 1 224.23 92.5303)" class="st3 st4">1-416</text>
 		<text transform="matrix(0.9 0 0 1 226.23 189.5303)" class="st3 st4">1-4м15</text>
 		<text transform="matrix(0.9 0 0 1 226.0298 277.96)" class="st3 st4">1-413</text>
-		<text transform="matrix(0.9 0 0 1 134.332 264.0582)" class="st3 st4">1-423</text>
+		<text transform="matrix(0.9 0 0 1 134.332 264.0581)" class="st3 st4">1-423</text>
 		<text transform="matrix(0.9 0 0 1 137.0996 336.1567)" class="st3 st4">1-424</text>
-		<text transform="matrix(0.9 0 0 1 135.5323 377.3473)" class="st3 st4">1-425</text>
-		<text transform="matrix(0.9 0 0 1 132.2083 439.6885)" class="st3 st4">1-426</text>
+		<text transform="matrix(0.9 0 0 1 135.5322 377.3472)" class="st3 st4">1-425</text>
+		<text transform="matrix(0.9 0 0 1 132.208 439.6885)" class="st3 st4">1-426</text>
 		<rect x="214.5" y="369.5" class="st1" width="3" height="107"/>
 		<rect x="214.5" y="501.5" class="st1" width="3" height="61"/>
 		<rect x="214.5" y="569.5" class="st1" width="3" height="327"/>
@@ -103,14 +111,14 @@
 		<rect x="49.5" y="808.5" class="st1" width="139" height="3"/>
 		<rect x="96.5" y="751.5" class="st1" width="3" height="57"/>
 		<rect x="145.5" y="750.5" class="st1" width="3" height="58"/>
-		<text transform="matrix(0.9 0 0 1 133.8704 535.5)" class="st3 st4">1-427</text>
-		<text transform="matrix(0.9 0 0 1 132.2083 655.4449)" class="st3 st4">1-429?</text>
-		<text transform="matrix(0.9 0 0 1 133.8704 729.6324)" class="st3 st4">1-430</text>
+		<text transform="matrix(0.9 0 0 1 133.8701 535.5)" class="st3 st4">1-427</text>
+		<text transform="matrix(0.9 0 0 1 132.208 655.4453)" class="st3 st4">1-429?</text>
+		<text transform="matrix(0.9 0 0 1 133.8701 729.6328)" class="st3 st4">1-430</text>
 		<text transform="matrix(0.9 0 0 1 153.2168 781.9561)" class="st3 st7">1-431</text>
 		<text transform="matrix(0.9 0 0 1 90.0996 867.54)" class="st3 st4">1-433</text>
-		<text transform="matrix(0.5873 0 0 1 192.7158 862.3401)" class="st3 st8">1-433а</text>
+		<text transform="matrix(0.5873 0 0 1 192.7158 862.3398)" class="st3 st8">1-433а</text>
 		<text transform="matrix(0.9 0 0 1 233.0996 831.54)" class="st3 st4">1-436</text>
-		<text transform="matrix(0.9 0 0 1 229.11 626.7545)" class="st3 st4">1-438</text>
+		<text transform="matrix(0.9 0 0 1 229.1099 626.7549)" class="st3 st4">1-438</text>
 		<g>
 			<rect x="660.5" y="501.5" class="st2" width="6" height="83"/>
 			<path d="M666,502v82h-5v-82H666 M667,501h-7v84h7V501L667,501z"/>
@@ -141,9 +149,9 @@
 		<rect x="1016.5" y="557.5" class="st1" width="433" height="7"/>
 		<rect x="1446.5" y="501.5" class="st1" width="3" height="56"/>
 		<rect x="1016.5" y="501.5" class="st1" width="430" height="3"/>
-		<rect x="1051" y="504.5" class="st1" width="3" height="53"/>
-		<rect x="1193.5" y="504.5" class="st1" width="3" height="53"/>
-		<rect x="1266.5" y="504.5" class="st1" width="3" height="53"/>
+		<rect x="1040.2" y="504.5" class="st1" width="3" height="53"/>
+		<rect x="1224.1" y="504.3" class="st1" width="3" height="53"/>
+		<rect x="1255.4" y="504.5" class="st1" width="3" height="53"/>
 		<rect x="1375.5" y="504.5" class="st1" width="3" height="53"/>
 		<rect x="983.5" y="397.5" class="st1" width="7" height="39"/>
 		<rect x="990.5" y="397.5" class="st1" width="459" height="7"/>
@@ -167,11 +175,11 @@
 		<rect x="1474.5" y="213.5" class="st1" width="3" height="137"/>
 		<rect x="1474.5" y="146.5" class="st1" width="3" height="60"/>
 		<rect x="1474.5" y="19.5" class="st1" width="3" height="96"/>
-		<rect x="1446.5" y="19.5" class="st1" width="3" height="99"/>
-		<rect x="1385.5" y="117" class="st1" width="61" height="3"/>
+		<rect x="1446.5" y="34.3" class="st1" width="3" height="55.8"/>
+		<rect x="1385.5" y="115.5" class="st1" width="89" height="3"/>
 		<rect x="1385.5" y="143.5" class="st1" width="61" height="3"/>
-		<rect x="1385.5" y="279.5" class="st1" width="61" height="3"/>
-		<rect x="1477.5" y="362.2" class="st1" width="60" height="3"/>
+		<rect x="1385.5" y="311.6" class="st1" width="61" height="3"/>
+		<rect x="1477.5" y="311.6" class="st1" width="60" height="3"/>
 		<rect x="1537.5" y="213.5" class="st1" width="7" height="535"/>
 		<rect x="1513.5" y="146.5" class="st1" width="3" height="60"/>
 		<rect x="1624" y="146.5" class="st1" width="3" height="60"/>
@@ -180,26 +188,24 @@
 		<rect x="1385.5" y="896.5" class="st1" width="234" height="7"/>
 		<rect x="1612.5" y="748.5" class="st1" width="7" height="148"/>
 		<rect x="1544.5" y="741.5" class="st1" width="75" height="7"/>
-		<rect x="1446.5" y="564.5" class="st1" width="3" height="275"/>
+		<rect x="1446.5" y="564.5" class="st1" width="3" height="332"/>
 		<rect x="1385.5" y="836.5" class="st1" width="61" height="3"/>
-		<rect x="1385.5" y="799.7" class="st1" width="61" height="3"/>
-		<rect x="1385.5" y="604.2" class="st1" width="61" height="3"/>
-		<rect x="1477.5" y="394.5" class="st1" width="60" height="3"/>
-		<rect x="1477.5" y="423.5" class="st1" width="60" height="3"/>
-		<rect x="1477.5" y="532.5" class="st1" width="60" height="3"/>
-		<rect x="1477.5" y="568.5" class="st1" width="60" height="3"/>
-		<rect x="1477.5" y="602" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="349" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="391" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="429.1" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="461" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="561" class="st1" width="60" height="3"/>
 		<rect x="1477.5" y="745.5" class="st1" width="60" height="3"/>
 		<rect x="1477.5" y="808.5" class="st1" width="134" height="3"/>
 		<rect x="1512.3" y="748.5" class="st1" width="3" height="60"/>
 		<rect x="1582" y="748.5" class="st1" width="3" height="60"/>
-		<rect x="1449.5" y="836.5" class="st1" width="163" height="3"/>
+		<rect x="1476.7" y="836.5" class="st1" width="135.8" height="3"/>
 		<rect x="1476.7" y="839.5" class="st1" width="3" height="57"/>
 		<rect x="1522.5" y="839.5" class="st1" width="3" height="57"/>
 		<text transform="matrix(0.9 0 0 1 59.5381 186.2402)" class="st3 st9">1-420а</text>
-		<text transform="matrix(0.7509 0 0 1 120.4998 188.2788)" class="st3 st10">1-420</text>
+		<text transform="matrix(0.7509 0 0 1 120.5 188.2788)" class="st3 st10">1-420</text>
 		<text transform="matrix(0.9 0 0 1 220.25 538.5)" class="st3 st11">1-440</text>
-		<text transform="matrix(0.9 0 0 1 296.2521 535.6494)" class="st3 st12">1-442</text>
+		<text transform="matrix(0.9 0 0 1 296.252 535.6494)" class="st3 st12">1-442</text>
 		<text transform="matrix(1 0 0 1 109.82 780.54)" class="st3 st13">с/у</text>
 		<text transform="matrix(1 0 0 1 229.11 389.05)" class="st3 st13">с/у</text>
 		<text transform="matrix(0.81 0 0 1 220.25 437.8203)" class="st3 st14">Ле</text>
@@ -216,98 +222,115 @@
 		<text transform="matrix(0.68 0 0 1 64.9902 780.6904)" class="st3 st16">с</text>
 		<text transform="matrix(0.68 0 0 1 69.165 780.6904)" class="st3 st16">т</text>
 		<text transform="matrix(0.68 0 0 1 72.8032 780.6904)" class="st3 st16">ница</text>
-		<text transform="matrix(0.9 0 0 1 319.4816 443.0674)" class="st3 st17">1-410</text>
+		<text transform="matrix(0.9 0 0 1 319.4814 443.0674)" class="st3 st17">1-410</text>
 		<rect x="503.5" y="408.5" class="st1" width="3" height="65"/>
-		<text transform="matrix(0.911 0 0 1 439.5 442.9702)" class="st3 st18">1-406</text>
+		<text transform="matrix(0.911 0 0 1 439.5 442.9707)" class="st3 st18">1-406</text>
 		<text transform="matrix(0.8484 0 0 1 476.4316 445.498)" class="st3 st19">1-405</text>
-		<text transform="matrix(0.9 0 0 1 557.5182 445.498)" class="st3 st20">1-403</text>
-		<text transform="matrix(0.7641 0 0 1 330.1681 537.1836)" class="st3 st21">1-443</text>
+		<text transform="matrix(0.9 0 0 1 557.5181 445.498)" class="st3 st20">1-403</text>
+		<text transform="matrix(0.7641 0 0 1 330.168 537.1836)" class="st3 st21">1-443</text>
 		<text transform="matrix(0.7641 0 0 1 437.75 538.5)" class="st3 st21">1-446</text>
-		<text transform="matrix(0.859 0 0 1 471.4536 535.7832)" class="st3 st22">1-447а</text>
-		<text transform="matrix(0.7641 0 0 1 534.2349 537.3508)" class="st3 st21">1-447</text>
-		<text transform="matrix(0.7641 0 0 1 594.6205 537.5178)" class="st3 st23">1-448</text>
-		<text transform="matrix(0.7641 0 0 1 627.6636 537.6584)" class="st3 st21">1-449</text>
-		<text transform="matrix(0.7641 0 0 1 692.752 543)" class="st3 st21">1-351</text>
-		<text transform="matrix(0.7641 0 0 1 758.4609 543)" class="st3 st21">1-352</text>
+		<text transform="matrix(0.859 0 0 1 471.4541 535.7832)" class="st3 st22">1-447а</text>
+		<text transform="matrix(0.7641 0 0 1 534.2349 537.3506)" class="st3 st21">1-447</text>
+		<text transform="matrix(0.7641 0 0 1 594.6201 537.5176)" class="st3 st23">1-448</text>
+		<text transform="matrix(0.7641 0 0 1 627.6636 537.6582)" class="st3 st21">1-449</text>
+		<text transform="matrix(0.7641 0 0 1 692.752 543)" class="st3 st21">1-450</text>
+		<text transform="matrix(0.7641 0 0 1 758.4609 543)" class="st3 st21">1-451</text>
 		<text transform="matrix(0.7641 0 0 1 806.8662 392.5)" class="st3 st21">Лестница</text>
-		<text transform="matrix(0.7641 0 0 1 877.1191 541)" class="st3 st21">1-353</text>
-		<text transform="matrix(0.7641 0 0 1 1007.7119 440.4326)" class="st3 st21">1-399</text>
-		<text transform="matrix(0.7641 0 0 1 1076.8291 437.8203)" class="st3 st21">1-398</text>
-		<text transform="matrix(0.6977 0 0 1 1022.0742 533.668)" class="st3 st24">1-353а</text>
-		<text transform="matrix(0.7641 0 0 1 1058.0918 533.835)" class="st3 st21">1-354</text>
-		<text transform="matrix(0.7641 0 0 1 1125.5 533.668)" class="st3 st21">1-355</text>
-		<rect x="1266.3" y="404.5" class="st1" width="3" height="69"/>
-		<rect x="1305.4" y="404.5" class="st1" width="3" height="69"/>
-		<rect x="1088.1" y="504.5" class="st1" width="3" height="53"/>
-		<rect x="1378.5" y="527.6" class="st1" width="68" height="3"/>
-		<text transform="matrix(0.7641 0 0 1 1128.6426 440.4336)" class="st3 st21">1-397</text>
-		<text transform="matrix(0.7641 0 0 1 1162.4814 439)" class="st3 st21">1-396</text>
-		<text transform="matrix(0.7641 0 0 1 1218.46 437.9873)" class="st3 st21">1-394</text>
-		<text transform="matrix(0.7641 0 0 1 1217.3105 533.668)" class="st3 st21">1-356</text>
-		<text transform="matrix(0.7641 0 0 1 1271.5371 437.8203)" class="st3 st21">1-393</text>
-		<text transform="matrix(0.7641 0 0 1 1328.8311 436.5137)" class="st3 st21">1-392</text>
-		<text transform="matrix(0.7641 0 0 1 1306.4551 535.5)" class="st3 st21">1-358</text>
-		<text transform="matrix(0.7641 0 0 1 1397.8887 520.5459)" class="st3 st21">1-359</text>
-		<text transform="matrix(0.7641 0 0 1 1399.0381 547.1514)" class="st3 st21">1-359а</text>
-		<text transform="matrix(0.6796 0 0 1 1384.0166 445.498)" class="st3 st25">Лестница/лифт</text>
-		<text transform="matrix(0.7641 0 0 1 1397.709 592.54)" class="st3 st21">1-360</text>
-		<text transform="matrix(0.7641 0 0 1 1397.8887 633.9209)" class="st3 st21">1-361</text>
-		<text transform="matrix(0.7641 0 0 1 1396.4951 709.4717)" class="st3 st21">1-362</text>
-		<text transform="matrix(0.7641 0 0 1 1397.6445 781.9561)" class="st3 st21">1-363</text>
-		<text transform="matrix(0.7641 0 0 1 1397.6445 820.1113)" class="st3 st21">1-364</text>
+		<text transform="matrix(0.7641 0 0 1 877.1191 541)" class="st3 st21">1-453</text>
+		<text transform="matrix(0.7641 0 0 1 1007.7119 440.4326)" class="st3 st21">1-499</text>
+		<text transform="matrix(0.6977 0 0 1 1017.4053 530.666)" class="st3 st24">1-453а</text>
+		<text transform="matrix(0.7641 0 0 1 1075.1643 534.002)" class="st3 st21">1-454</text>
+		<text transform="matrix(0.7641 0 0 1 1136.3048 531.1241)" class="st3 st25">1-455</text>
+		<text transform="matrix(0.7641 0 0 1 1097.6185 442.2324)" class="st3 st21">1-498</text>
+		<text transform="matrix(0.7641 0 0 1 1200.583 440.5996)" class="st3 st26">1-493</text>
+		<text transform="matrix(0.7641 0 0 1 1231.1719 532.624)" class="st3 st27">1-457</text>
+		<text transform="matrix(0.7641 0 0 1 1298.2852 442.0654)" class="st3 st21">1-492</text>
+		<text transform="matrix(0.7641 0 0 1 1285.1455 535.5)" class="st3 st21">1-458</text>
+		<text transform="matrix(0.7641 0 0 1 1421.9365 537.3506)" class="st3 st28">1-459</text>
+		<text transform="matrix(0.7641 0 0 1 1382 533.7832)" class="st3 st29">1-459</text>
+		<text transform="matrix(0.6796 0 0 1 1384.0166 445.498)" class="st3 st30">Лестница/лифт</text>
+		<text transform="matrix(0.7641 0 0 1 1402.8203 626.7549)" class="st3 st21">1-460</text>
+		<text transform="matrix(0.7641 0 0 1 1403.9697 718.9584)" class="st3 st21">1-460а</text>
+		<text transform="matrix(0.7641 0 0 1 1399.8926 798.5574)" class="st3 st21">1-465а</text>
 		<rect x="1385.5" y="746.2" class="st1" width="61" height="3"/>
-		<rect x="1385.5" y="641.7" class="st1" width="61" height="3"/>
-		<text transform="matrix(0.7641 0 0 1 1416 872.8203)" class="st3 st21">1-365</text>
-		<text transform="matrix(0.7641 0 0 1 1483.1699 871.8496)" class="st3 st21">1-367</text>
-		<text transform="matrix(0.7641 0 0 1 1550.4521 871.8496)" class="st3 st21">1-367а</text>
-		<text transform="matrix(0.7641 0 0 1 1481.6416 783.5)" class="st3 st21">1-369</text>
+		<rect x="1385.5" y="686.4" class="st1" width="61" height="3"/>
+		<text transform="matrix(0.7641 0 0 1 1399.8922 868.0004)" class="st3 st21">1-465в</text>
+		<text transform="matrix(0.7641 0 0 1 1483.1699 871.8496)" class="st3 st21">1-467а</text>
+		<text transform="matrix(0.7641 0 0 1 1550.4521 871.8496)" class="st3 st21">1-467</text>
+		<text transform="matrix(0.7641 0 0 1 1481.6416 783.5)" class="st3 st21">1-469</text>
 		<text transform="matrix(0.7641 0 0 1 1541 783.5)" class="st3 st21">с/y</text>
-		<text transform="matrix(0.5384 0 0 1 1587.667 779.9072)" class="st3 st26">Лестница</text>
-		<text transform="matrix(0.7641 0 0 1 1493.5 663.8311)" class="st3 st21">1-374</text>
-		<text transform="matrix(0.7641 0 0 1 1492.4512 592.54)" class="st3 st21">1-375</text>
-		<text transform="matrix(0.7641 0 0 1 1490.7451 554.5098)" class="st3 st21">1-375а</text>
-		<text transform="matrix(0.7641 0 0 1 1491.8945 484.8174)" class="st3 st21">1-376</text>
-		<text transform="matrix(0.7641 0 0 1 1490.4473 414.2871)" class="st3 st21">1-376а</text>
-		<text transform="matrix(0.7641 0 0 1 1491.5967 385.1396)" class="st3 st21">1-376б</text>
-		<text transform="matrix(0.7641 0 0 1 1491.8945 296.106)" class="st3 st21">1-379</text>
+		<text transform="matrix(0.5384 0 0 1 1587.667 779.9072)" class="st3 st31">Лестница</text>
+		<text transform="matrix(0.7641 0 0 1 1490.9374 669.0841)" class="st3 st21">1-474а</text>
+		<text transform="matrix(0.7641 0 0 1 1494.7504 588.847)" class="st3 st21">1-475</text>
+		<text transform="matrix(0.7641 0 0 1 1490.9374 451.4456)" class="st3 st21">1-476г</text>
+		<text transform="matrix(0.7641 0 0 1 1493.601 414.7238)" class="st3 st21">1-476</text>
+		<text transform="matrix(0.7641 0 0 1 1489.9301 377)" class="st3 st21">1-476а</text>
+		<text transform="matrix(0.7641 0 0 1 1488.7803 338.0025)" class="st3 st21">1-477</text>
+		<text transform="matrix(0.7641 0 0 1 1492.4512 264.0581)" class="st3 st21">1-478</text>
 		<text transform="matrix(0.7641 0 0 1 1421.9365 381.7007)" class="st3 st21">с/у</text>
-		<text transform="matrix(0.7641 0 0 1 1405 313.4482)" class="st3 st21">1-391</text>
-		<text transform="matrix(0.7641 0 0 1 1401.3369 266.8457)" class="st3 st21">1-391а</text>
-		<text transform="matrix(0.7641 0 0 1 1401.3379 213.5)" class="st3 st21">1-388</text>
-		<text transform="matrix(0.7641 0 0 1 1401.6709 37.7749)" class="st3 st21">1-385</text>
-		<text transform="matrix(0.5384 0 0 1 1402.8203 133.501)" class="st3 st27">Лестница</text>
-		<text transform="matrix(0.7641 0 0 1 1485.8535 135.2402)" class="st3 st21">1-383</text>
-		<text transform="matrix(0.7641 0 0 1 1544.5 70.5518)" class="st3 st21">1-384</text>
+		<text transform="matrix(0.7641 0 0 1 1402.8203 336.1569)" class="st3 st21">1-491</text>
+		<text transform="matrix(0.7641 0 0 1 1399.8926 181.4381)" class="st3 st21">1-489</text>
+		<text transform="matrix(0.7641 0 0 1 1401.6709 160.4914)" class="st3 st21">1-488</text>
+		<text transform="matrix(0.5384 0 0 1 1402.8203 133.501)" class="st3 st32">Лестница</text>
+		<text transform="matrix(0.7641 0 0 1 1500.6697 68.6004)" class="st3 st21">1-485</text>
 		<rect x="1052.2" y="404.5" class="st1" width="3" height="69"/>
-		<rect x="1123.5" y="404.5" class="st1" width="3" height="69"/>
-		<rect x="1385.5" y="243.3" class="st1" width="61" height="3"/>
-		<text transform="matrix(0.7641 0 0 1 1481.6416 178.4302)" class="st3 st21">1-383</text>
-		<text transform="matrix(0.7641 0 0 1 1551.5713 179.8853)" class="st3 st21">1-383</text>
-		<text transform="matrix(0.7641 0 0 1 1633.1885 178.4302)" class="st3 st28">1-383</text>
-		<text transform="matrix(0.7641 0 0 1 1587.667 135.2402)" class="st3 st21">1-383</text>
-		<text transform="matrix(0.7641 0 0 1 1399.8926 82.7744)" class="st3 st21">1-386?</text>
+		<rect x="1385.5" y="165.4" class="st1" width="61" height="3"/>
+		<text transform="matrix(0.7641 0 0 1 1486.2435 178.5415)" class="st3 st33">1-479а</text>
+		<text transform="matrix(0.7641 0 0 1 1547.3092 177.8145)" class="st3 st21">1-480</text>
+		<text transform="matrix(0.7641 0 0 1 1632.3645 176.5)" class="st3 st34">1-482</text>
+		<text transform="matrix(0.7641 0 0 1 1405 80.73)" class="st3 st21">1-486</text>
 		<rect x="98.5" y="153.5" class="st1" width="3" height="63"/>
 		<rect x="127.5" y="564.5" class="st1" width="59" height="3"/>
-		<text transform="matrix(0.9 0 0 1 135.5323 592.5402)" class="st3 st4">1-428</text>
+		<text transform="matrix(0.9 0 0 1 135.5322 592.54)" class="st3 st4">1-428</text>
 		<rect x="217.5" y="672.3" class="st1" width="60" height="3"/>
 		<rect x="217.5" y="701.5" class="st1" width="60" height="3"/>
-		<text transform="matrix(0.9 0 0 1 224.23 692.3704)" class="st3 st29">1-437а?</text>
-		<text transform="matrix(0.9 0 0 1 229.6219 731.3204)" class="st3 st4">1-437</text>
+		<text transform="matrix(0.9 0 0 1 224.23 692.3701)" class="st3 st35">1-437а?</text>
+		<text transform="matrix(0.9 0 0 1 229.6216 731.3203)" class="st3 st4">1-437</text>
 		<rect x="290.5" y="504.8" class="st1" width="3" height="58"/>
 		<rect x="367.1" y="504.8" class="st1" width="3" height="58"/>
 		<rect x="323.5" y="504.7" class="st1" width="3" height="58"/>
-		<text transform="matrix(0.9 0 0 1 261.3195 537.1836)" class="st3 st30">1-441</text>
-		<text transform="matrix(0.7641 0 0 1 372.6219 535.6494)" class="st3 st31">1-444</text>
-		<text transform="matrix(0.7641 0 0 1 404.1172 537.1838)" class="st3 st21">1-445</text>
+		<text transform="matrix(0.9 0 0 1 261.3193 537.1836)" class="st3 st36">1-441</text>
+		<text transform="matrix(0.7641 0 0 1 372.6221 535.6494)" class="st3 st37">1-444</text>
+		<text transform="matrix(0.7641 0 0 1 404.1172 537.1836)" class="st3 st21">1-445</text>
 		<rect x="592.6" y="408.5" class="st1" width="3" height="65"/>
 		<rect x="546" y="408.5" class="st1" width="3" height="65"/>
 		<rect x="367.1" y="408.5" class="st1" width="3" height="65"/>
 		<rect x="400" y="408.5" class="st1" width="3" height="65"/>
-		<text transform="matrix(0.9 0 0 1 406.3496 442.0654)" class="st3 st32">1-407</text>
-		<text transform="matrix(0.9 0 0 1 375.4467 442.9702)" class="st3 st33">1-408</text>
-		<text transform="matrix(0.8484 0 0 1 515.4286 445.6055)" class="st3 st34">1-404</text>
-		<text transform="matrix(0.9 0 0 1 608.335 445.6987)" class="st3 st35">1-402</text>
-		<text transform="matrix(0.8484 0 0 1 655.7031 445.811)" class="st3 st36">1-401</text>
+		<text transform="matrix(0.9 0 0 1 406.3496 442.0654)" class="st3 st38">1-407</text>
+		<text transform="matrix(0.9 0 0 1 375.4463 442.9707)" class="st3 st39">1-408</text>
+		<text transform="matrix(0.8484 0 0 1 515.4287 445.6055)" class="st3 st40">1-404</text>
+		<text transform="matrix(0.9 0 0 1 608.335 445.6982)" class="st3 st41">1-402</text>
+		<text transform="matrix(0.8484 0 0 1 655.7031 445.8105)" class="st3 st42">1-401</text>
+		<rect x="1225.6" y="404.7" class="st1" width="3" height="69"/>
+		<text transform="matrix(0.7641 0 0 1 1166.1328 440.7345)" class="st3 st26">1-496</text>
+		<rect x="1414.5" y="504.5" class="st1" width="3" height="53"/>
+		<rect x="1333.2" y="504.5" class="st1" width="3" height="53"/>
+		<rect x="1193.5" y="504.5" class="st1" width="3" height="53"/>
+		<rect x="1159.6" y="504.3" class="st1" width="3" height="53"/>
+		<rect x="1129.6" y="504.5" class="st1" width="3" height="53"/>
+		<text transform="matrix(0.7641 0 0 1 1341.8213 532.4999)" class="st3 st29">1-458а</text>
+		<text transform="matrix(0.7641 0 0 1 1165.8595 531.0001)" class="st3 st43">1-455а</text>
+		<text transform="matrix(0.7641 0 0 1 1198.8605 533.7833)" class="st3 st43">1-456</text>
+		<rect x="1385.5" y="186" class="st1" width="61" height="3"/>
+		<text transform="matrix(0.7641 0 0 1 1402.8204 245.5885)" class="st3 st21">1-490</text>
+		<rect x="1624" y="19.5" class="st1" width="3" height="96"/>
+		<rect x="1551.6" y="19.5" class="st1" width="3" height="96"/>
+		<text transform="matrix(0.7641 0 0 1 1569.9089 67.5002)" class="st3 st21">1-484</text>
+		<text transform="matrix(0.7641 0 0 1 1630.1581 79.8042)" class="st3 st34">1-483</text>
+		<rect x="1597.7" y="146.5" class="st1" width="3" height="60"/>
+		<text transform="matrix(0.7641 0 0 1 1603.0007 177.8144)" class="st3 st34">1-481</text>
+		<rect x="1449.5" y="870.3" class="st1" width="27.2" height="3"/>
+		<rect x="1477.5" y="686.4" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="644" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="609.9" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="532.5" class="st1" width="60" height="3"/>
+		<rect x="1477.5" y="501.5" class="st1" width="60" height="3"/>
+		<text transform="matrix(0.7641 0 0 1 1494.75 552.1047)" class="st3 st21">1-475а</text>
+		<text transform="matrix(0.7641 0 0 1 1492.4517 522.6507)" class="st3 st21">1-476б</text>
+		<text transform="matrix(0.7641 0 0 1 1493.6006 486.163)" class="st3 st21">1-476в</text>
+		<text transform="matrix(0.7641 0 0 1 1495.899 632.9623)" class="st3 st21">1-474</text>
+		<text transform="matrix(0.7641 0 0 1 1494.6498 721.635)" class="st3 st21">1-470</text>
+		<text transform="matrix(0.7641 0 0 1 1455.1906 886.6752)" class="st3 st44">1-465б</text>
 	</g>
 	<rect x="1474.5" y="118.5" class="st1" width="3" height="25"/>
 </g>

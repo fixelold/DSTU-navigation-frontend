@@ -69,14 +69,15 @@ import axios from 'axios'
             this.read().then(() => {this.create()})
 
           } else if (this.radioData == "update") {
-            this.read().then(() => {
-              this.temp = this.auditory_id
-              this.twoData = this.threeData
-              this.read().then(() => {this.update()})
+            this.read().then(() => { // а тут получаем новый id
+              this.temp = this.auditory_id // тут новый id аудитории
+              let tmp = this.twoData
+              this.twoData = this.threeData // а тут данные для получения старого id
+              this.threeData = tmp
+              this.read().then(() => {this.update()}) // в read получаем старые данные
             })
 
           } else if (this.radioData == "delete") {
-            console.log("one data - ", this.oneData)
             this.twoData = this.oneData
             this.read().then(() => {
               this.delete()
@@ -90,7 +91,7 @@ import axios from 'axios'
         async create() {
           this.jwtToken = this.$cookies.get("token");
 
-          const json = JSON.stringify({ name: this.oneData, auditory_id: this.auditory_id});
+          const json = JSON.stringify({ name: this.oneData, auditory_id: this.auditory_id, auditory_number: this.twoData});
           await axios({
             headers: {
             'Accept' : 'application/json',
@@ -104,16 +105,16 @@ import axios from 'axios'
         },
 
         async read() {
+          console.log("number - ", this.twoData)
           await axios 
               .get("http://92.63.99.78:8080/api/v1/auditory?number=" + this.twoData)
-              .then(response => { this.auditory_id = response.data.id
-            })
+              .then(response => { this.auditory_id = response.data.id})
         },
 
         async update() {
           this.jwtToken = this.$cookies.get("token");
 
-          const json = JSON.stringify({ name: this.oneData, auditory_id: this.temp});
+          const json = JSON.stringify({ name: this.oneData, auditory_id: this.temp, auditory_number: this.threeData});
           await axios({
             headers: {
             'Accept' : 'application/json',

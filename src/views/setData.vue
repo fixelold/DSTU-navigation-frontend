@@ -1,17 +1,29 @@
 <template>
 
   <body>
-    <div class="setData">
-        <input checked="" id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud">
+    <div class="parent">
+      <div class="setData">
+        <input id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud" checked>
         <label for="signin">Ввод аудиторий</label>
-  
+
         <input id="signup" v-model="radioValue" v-on:click="signInData" name="action" type="radio" value="login" >
         <label for="signup">Войти</label>
+
+        <input id="importantPlaces" v-model="radioValue" v-on:click="importantPlacesData" name="action" type="radio" value="importantPlaces" >
+        <label for="importantPlaces">Важные места</label>
+  
   
         <div id="wrapper">
           <div id="arrow"></div>
+
           <input id="email"  v-model="dataOne" :placeholder='one' type="text">
+
           <input id="pass" v-model="dataTwo" :placeholder='two' type="text">
+
+          <select id="selectedPlaces" v-model="dataTwo">
+            <option v-for="importantPlace in importantPlacesName" v-bind:key="importantPlace.name">{{importantPlace.name}}</option>
+          </select>
+
         </div>
         <button type="submit" v-on:click="distributor">
           <span>
@@ -19,10 +31,27 @@
             Проложить путь
             <br>
             Войти
+            <br>
+            Проложить путь
           </span>
         </button>
       </div>
-  
+
+      <div class="toggle">
+        <input type="checkbox" class="check" v-model="checked">
+        <b class="b switch"></b>
+        <b class="b track"></b>
+      </div>
+
+      <div class="icon-human">
+        <img src="../../data/icons/pngwing.com.png">
+      </div>
+
+      <div class="icon-elevator">
+        <img src="../../data/icons/icons8-доступ-для-инвалидов-48.png">
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="waves">
         <div class="wave" id="wave1"></div>
@@ -71,6 +100,11 @@
       two: 'Конечная аудитория',
       jwtToken: '',
       responseStatus: '',
+      importantPlacesName: [],
+      importantPlaces: [],
+      selectedImportantPlaces: '',
+      tmp: '',
+      checked: false
     };
   },
 
@@ -82,19 +116,42 @@
         }else {
           this.callMap()
         }
+
       } else if (this.radioValue == "login") {
         if (this.dataOne == '' && this.dataTwo == '') {
           this.showModal();
-        }else {
+
+        } else {
           this.signin().then(() => {
-            // if (this.jwtToken == '') {
-            //   this.showLoginModal();
-            // }
           })
         }
-      } else {
+      }  else if (this.radioValue == "importantPlaces") {
+          if (this.dataOne == ''&& this.dataTwo == '') {
+            this.showModal();
+          } else {
+            for (let i = 0; i < this.importantPlacesName.length; i++) {
+              if (this.importantPlacesName[i].name == this.dataTwo) {
+                this.dataTwo = this.importantPlaces[i].auditory_number
+                // this.$cookies.set("opa", this.dataTwo);
+                break
+              }
+            }
+            this.callMap()
+          }
+        } else {
         console.log("Error")
       }
+    },
+
+    async getImportantPlaces() {
+      await axios 
+              .get("http://92.63.99.78:8080/api/v1/places/list")
+              .then(response => {
+                for (let i = 0; i < response.data.length; i++) {
+                  this.importantPlacesName.push({name: response.data[i].name})
+                  this.importantPlaces.push(response.data[i])
+                }
+              })
     },
 
     async signin() {
@@ -110,8 +167,9 @@
     },
 
     callMap() {
-      this.$cookies.set("end",this.dataTwo,);
+      this.$cookies.set("end", this.dataTwo);
       this.$cookies.set("start",this.dataOne);
+      this.$cookies.set("checked",this.checked);
       window.location.href = "/map";
     },
 
@@ -125,6 +183,12 @@
     setData() {
       this.one = "Начальная аудитория"
       this.two = "Конечная аудитория"
+      this.dataOne = ""
+      this.dataTwo = ""
+    },
+
+    importantPlacesData() {
+      this.one = "Начальная аудитория"
       this.dataOne = ""
       this.dataTwo = ""
     },
@@ -144,6 +208,10 @@
     closeLoginModal() {
       this.isModalVisibleLogin = false;
     }
+  },
+
+    mounted() {
+      this.getImportantPlaces();
   }
 }
 
@@ -152,6 +220,16 @@
 <style>
     @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
   
+    .setData {
+      /* min-width: 520px; */
+      /* min-height: 370px; */
+      min-width: 36%;
+      position: absolute;
+      margin: -185px -225px;
+      left: 50%;
+      top: 50%;
+    }
+    
     html, body { margin: 0; }
   
     :focus { outline: none; }
@@ -166,6 +244,35 @@
       font-family: 'Raleway', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
+
+    #selectedPlaces {
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 27px;
+      font-family: 'Raleway', sans-serif;
+      height: 40px;
+      width: 99.5%;
+      margin-bottom: 20px;
+      opacity: 1;
+      text-indent: 20px;
+      transition: all .2s ease-in-out;
+    }
+
+    input[type=text],
+    input[type=twoData] {
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 27px;
+      font-family: 'Raleway', sans-serif;
+      height: 72px;
+      width: 99.5%;
+      margin-bottom: 10px;
+      opacity: 1;
+      text-indent: 20px;
+      transition: all .2s ease-in-out;
+    }
   
     #wrapper, label, #arrow, button span { transition: all .5s cubic-bezier(.6,0,.4,1); }
   
@@ -175,18 +282,14 @@
     #signin:checked ~ #wrapper #arrow { left: 100px; }
     #signin:checked ~ button span { transform: translate3d(0,-72px,0); }
   
-    #signup:checked ~ #wrapper { height: 178; }
-    #signup:checked ~ #wrapper #arrow { left: 260px; }
+    #importantPlaces:checked ~ #wrapper { height: 178px; }
+    #importantPlaces:checked ~ #wrapper #arrow { left: 420px; }
+    #importantPlaces:checked ~ button span { transform: translate3d(0,-72px,0); }
+    #importantPlaces:checked ~ #wrapper #pass  { display: none; }
+
+    #signup:checked ~ #wrapper { height: 178px; }
+    #signup:checked ~ #wrapper #arrow { left: 330px; }
     #signup:checked ~ button span { transform: translate3d(0,-144px,0); }
-  
-    .setData {
-      width: 450px;
-      height: 370px;
-      margin: -185px -225px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-    }
   
     input[type=radio] { display: none; }
   
@@ -204,23 +307,11 @@
       opacity: 1;
     }
     label[for="signin"] { margin-right: 20px; }
-    label[for="reset"] { float: right; }
-    input[type=radio]:checked + label { opacity: 1; }
+    /* label[for="importantPlaces"] { margin-right: 20px; } */
+    label[for="signup"] { margin-right: 20px; }
+    /* label[for="reset"] { float: right; } */
+    /* input[type=radio]:checked + label { opacity: 1; } */
   
-    input[type=text],
-    input[type=password] {
-      background: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 27px;
-      font-family: 'Raleway', sans-serif;
-      height: 72px;
-      width: 99.5%;
-      margin-bottom: 10px;
-      opacity: 1;
-      text-indent: 20px;
-      transition: all .2s ease-in-out;
-    }
     button {
       background: #1f61c5;
       border: none;
@@ -230,7 +321,7 @@
       font-family: 'Raleway', sans-serif;
       font-size: 27px;
       height: 72px;
-      width: 100%;
+      width: 80%;
       margin-bottom: 10px;
       overflow: hidden;
       transition: all .3s cubic-bezier(.6,0,.4,1);
@@ -376,6 +467,110 @@
       background-positon-x: 0px;
     }
   }
-  
-  
+
+
+  .parent {
+    display: flex;
+    flex-flow: row wrap;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+  }
+  .setData {
+    width: 150px;
+    
+    /* outline: 1px solid #060; */
+  }
+  .toggle toggle--daynight {
+    flex-basis: 250px;
+    flex-grow: 1;
+    
+    /* outline: 1px solid #900; */
+  }
+
+html, body {
+  height: 100%;
+}
+
+.b {
+  display: block;
+}
+
+.toggle {
+  position: absolute;
+  top: 40%;
+  left: 78%;
+  width: 60px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #ddd;
+  margin: -20px -40px;
+  overflow: hidden;
+  box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+}
+
+.check {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 6;
+}
+
+  .check:checked ~ .track {
+    box-shadow: inset 0 0 0 20px #1f61c5;
+  }
+
+  .check:checked ~ .switch {
+    right: 2px;
+    left: 22px;
+    transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    transition-property: left, right;
+    transition-delay: .05s, 0s;
+  }
+
+.switch {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 22px;
+  background-color: #fff;
+  border-radius: 36px;
+  z-index: 1;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: 0s, .05s;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
+  border-radius: 40px;
+}
+
+.icon-human {
+  position: absolute;
+  top: 37%;
+  left: 72%;
+  /* background-color: red; */
+  /* background-image: "/data/icons/icons8-доступ-для-инвалидов-48.png"; */
+}
+
+.icon-elevator {
+  position: absolute;
+  top: 37%;
+  left: 80%;
+  /* background-color: red; */
+  /* background-image: "/data/icons/icons8-доступ-для-инвалидов-48.png"; */
+}
 </style>
