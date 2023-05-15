@@ -238,9 +238,9 @@
   }
 
     @media screen  and (max-width: 1015px) {
-      label[for="signin"] { margin-right: 20px; font-size: 12px; }
-      label[for="signup"] { margin-right: 20px; font-size: 12px; }
-      label[for="importantPlaces"] { margin-right: 20px; font-size: 12px; }
+      label[for="signin"] { margin-right: 20px; font-size: 11px; }
+      label[for="signup"] { margin-right: 20px; font-size: 11px; }
+      label[for="importantPlaces"] { margin-right: 20px; font-size: 11px; }
         .inputData {
         width: 80%;
         height: 50%;
