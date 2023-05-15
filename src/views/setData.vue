@@ -1,8 +1,7 @@
 <template>
 
   <body>
-    <div class="parent">
-      <div class="setData">
+      <div class="inputData">
         <input id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud" checked>
         <label for="signin">Ввод аудиторий</label>
 
@@ -16,16 +15,16 @@
         <div id="wrapper">
           <div id="arrow"></div>
 
-          <input id="email"  v-model="dataOne" :placeholder='one' type="text">
+          <input class="oneInput" id="email"  v-model="dataOne" :placeholder='one' type="text">
 
-          <input id="pass" v-model="dataTwo" :placeholder='two' type="text">
+          <input class="oneInput" id="pass" v-model="dataTwo" :placeholder='two' type="text">
 
           <select id="selectedPlaces" v-model="dataTwo">
             <option v-for="importantPlace in importantPlacesName" v-bind:key="importantPlace.name">{{importantPlace.name}}</option>
           </select>
 
         </div>
-        <button type="submit" v-on:click="distributor">
+        <button class="btn" type="submit" v-on:click="distributor">
           <span>
             <br>
             Проложить путь
@@ -35,22 +34,21 @@
             Проложить путь
           </span>
         </button>
-      </div>
 
-      <div class="toggle">
-        <input type="checkbox" class="check" v-model="checked">
-        <b class="b switch"></b>
-        <b class="b track"></b>
-      </div>
+        <div class="toggle">
+          <input type="checkbox" class="check" v-model="checked">
+          <b class="b switch"></b>
+          <b class="b track"></b>
+        </div>
 
-      <div class="icon-human">
-        <img src="../../data/icons/pngwing.com.png">
-      </div>
+        <div class="icon-human">
+          <img src="../../data/icons/pngwing.com.png">
+        </div>
 
-      <div class="icon-elevator">
-        <img src="../../data/icons/icons8-доступ-для-инвалидов-48.png">
+        <div class="icon-elevator">
+          <img src="../../data/icons/icons8-доступ-для-инвалидов-48.png">
+        </div>
       </div>
-    </div>
 
     <footer class="footer">
       <div class="waves">
@@ -220,31 +218,120 @@
 <style>
     @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
   
-    .setData {
-      /* min-width: 520px; */
-      /* min-height: 370px; */
-      min-width: 36%;
+    .inputData {
+      width: 50%;
+      height: 50%;
+      /* margin: -1% -3%; */
       position: absolute;
-      margin: -185px -225px;
-      left: 50%;
-      top: 50%;
-    }
-    
-    html, body { margin: 0; }
-  
-    :focus { outline: none; }
-    ::-webkit-input-placeholder { color: #DEDFDF; }
-    ::-moz-placeholder { color: #DEDFDF; }
-    :-moz-placeholder { color: #DEDFDF; }
-    ::-ms-input-placeholder { color: #DEDFDF; }
-  
-    body {
-      background: #317ced;
-      color: #fff;
-      font-family: 'Raleway', sans-serif;
-      -webkit-font-smoothing: antialiased;
+      left: 25%;
+      top: 20%;
+      /* min-width: 48%; */
+
     }
 
+    footer {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    background: #3586ff;
+    bottom: 0;
+  }
+
+    @media screen  and (max-width: 670px) {
+        .inputData {
+        width: 80%;
+        height: 50%;
+        position: absolute;
+        left: 25%;
+        top: 20%;
+      }
+      #wrapper .oneInput {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        height: 72px;
+        width: 90%;
+        margin-bottom: 10px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+      }
+      .btn {
+        background: #1f61c5;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+        font-size: 27px;
+        height: 72px;
+        width: 91%;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all .3s cubic-bezier(.6,0,.4,1);
+      }
+
+    }
+
+  @media screen  and (min-width: 670px) {
+      .wave {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url("https://i.ibb.co/wQZVxxk/wave.png");
+      background-size: 1000px 100px;
+    }
+    
+    .wave#wave1 {
+      z-index: 1000;
+      opacity: 1;
+      bottom: 0;
+      animation: animateWaves 4s linear infinite;
+    }
+    
+    .wave#wave2 {
+      z-index: 999;
+      opacity: 0.5;
+      bottom: 10px;
+      animation: animate 4s linear infinite !important;
+    }
+    
+    .wave#wave3 {
+      z-index: 1000;
+      opacity: 0.2;
+      bottom: 15px;
+      animation: animateWaves 3s linear infinite;
+    }
+    
+    .wave#wave4 {
+      z-index: 999;
+      opacity: 0.7;
+      bottom: 20px;
+      animation: animate 3s linear infinite;
+    }
+    
+    @keyframes animateWaves {
+      0% {
+        background-position-x: 1000px;
+      }
+      100% {
+        background-positon-x: 0px;
+      }
+    }
+    
+    @keyframes animate {
+      0% {
+        background-position-x: -1000px;
+      }
+      100% {
+        background-positon-x: 0px;
+      }
+    }
+  }
     #selectedPlaces {
       background: #fff;
       border: none;
@@ -258,25 +345,6 @@
       text-indent: 20px;
       transition: all .2s ease-in-out;
     }
-
-    input[type=text],
-    input[type=twoData] {
-      background: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 27px;
-      font-family: 'Raleway', sans-serif;
-      height: 72px;
-      width: 99.5%;
-      margin-bottom: 10px;
-      opacity: 1;
-      text-indent: 20px;
-      transition: all .2s ease-in-out;
-    }
-  
-    #wrapper, label, #arrow, button span { transition: all .5s cubic-bezier(.6,0,.4,1); }
-  
-    #wrapper { overflow: hidden; }
   
     #signin:checked ~ #wrapper { height: 178px; }
     #signin:checked ~ #wrapper #arrow { left: 100px; }
@@ -291,78 +359,9 @@
     #signup:checked ~ #wrapper #arrow { left: 330px; }
     #signup:checked ~ button span { transform: translate3d(0,-144px,0); }
   
-    input[type=radio] { display: none; }
-  
-    label {
-      cursor: pointer;
-      display: inline-block;
-      font-size: 22px;
-      font-weight: 800;
-      opacity: .5;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-    }
-    label:hover {
-      transition: all .3s cubic-bezier(.6,0,.4,1);
-      opacity: 1;
-    }
+
     label[for="signin"] { margin-right: 20px; }
-    /* label[for="importantPlaces"] { margin-right: 20px; } */
     label[for="signup"] { margin-right: 20px; }
-    /* label[for="reset"] { float: right; } */
-    /* input[type=radio]:checked + label { opacity: 1; } */
-  
-    button {
-      background: #1f61c5;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      cursor: pointer;
-      font-family: 'Raleway', sans-serif;
-      font-size: 27px;
-      height: 72px;
-      width: 80%;
-      margin-bottom: 10px;
-      overflow: hidden;
-      transition: all .3s cubic-bezier(.6,0,.4,1);
-    }
-    button span {
-      display: block;
-      line-height: 72px;
-      position: relative;
-      top: -2px;
-      transform: translate3d(0,0,0);
-    }
-    button:hover {
-      background: #007BA5;
-    }
-  
-    #arrow {
-      height: 0;
-      width: 0;
-      border-bottom: 10px solid #fff;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      position: relative;
-      left: 32px;
-    }
-  
-  
-    #hint {
-      width: 100%;
-      text-align: center;
-      position: absolute;
-      bottom: 20px;
-    }
-  
-  
-    footer {
-    position: fixed;
-    height: 100px;
-    width: 100%;
-    background: #3586ff;
-    bottom: 0;
-  }
   
   .social-icon,
   .menu {
@@ -386,127 +385,6 @@
     display: inline-block;
     transition: 0.5s;
   }
-  .social-icon__link:hover {
-    transform: translateY(-10px);
-  }
-  
-  .menu__link {
-    font-size: 1.2rem;
-    color: #fff;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.5s;
-    text-decoration: none;
-    opacity: 0.75;
-    font-weight: 300;
-  }
-  
-  .menu__link:hover {
-    opacity: 1;
-  }
-  
-  .footer p {
-    color: #fff;
-    margin: 15px 0 10px 0;
-    font-size: 1rem;
-    font-weight: 300;
-  }
-  
-  .wave {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url("https://i.ibb.co/wQZVxxk/wave.png");
-    background-size: 1000px 100px;
-  }
-  
-  .wave#wave1 {
-    z-index: 1000;
-    opacity: 1;
-    bottom: 0;
-    animation: animateWaves 4s linear infinite;
-  }
-  
-  .wave#wave2 {
-    z-index: 999;
-    opacity: 0.5;
-    bottom: 10px;
-    animation: animate 4s linear infinite !important;
-  }
-  
-  .wave#wave3 {
-    z-index: 1000;
-    opacity: 0.2;
-    bottom: 15px;
-    animation: animateWaves 3s linear infinite;
-  }
-  
-  .wave#wave4 {
-    z-index: 999;
-    opacity: 0.7;
-    bottom: 20px;
-    animation: animate 3s linear infinite;
-  }
-  
-  @keyframes animateWaves {
-    0% {
-      background-position-x: 1000px;
-    }
-    100% {
-      background-positon-x: 0px;
-    }
-  }
-  
-  @keyframes animate {
-    0% {
-      background-position-x: -1000px;
-    }
-    100% {
-      background-positon-x: 0px;
-    }
-  }
-
-
-  .parent {
-    display: flex;
-    flex-flow: row wrap;
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
-  }
-  .setData {
-    width: 150px;
-    
-    /* outline: 1px solid #060; */
-  }
-  .toggle toggle--daynight {
-    flex-basis: 250px;
-    flex-grow: 1;
-    
-    /* outline: 1px solid #900; */
-  }
-
-html, body {
-  height: 100%;
-}
-
-.b {
-  display: block;
-}
-
-.toggle {
-  position: absolute;
-  top: 40%;
-  left: 78%;
-  width: 60px;
-  height: 40px;
-  border-radius: 100px;
-  background-color: #ddd;
-  margin: -20px -40px;
-  overflow: hidden;
-  box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
-}
 
 .check {
   position: absolute;
@@ -562,15 +440,31 @@ html, body {
   position: absolute;
   top: 37%;
   left: 72%;
-  /* background-color: red; */
-  /* background-image: "/data/icons/icons8-доступ-для-инвалидов-48.png"; */
+}
+
+.toggle {
+  position: absolute;
+  top: 5%;
+  left: 87%;
+  width: 60px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #ddd;
+  margin: -20px -40px;
+  overflow: hidden;
+  box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+}
+
+.icon-human {
+  position: absolute;
+  top: -2%;
+  left: 75%;
 }
 
 .icon-elevator {
   position: absolute;
-  top: 37%;
-  left: 80%;
-  /* background-color: red; */
-  /* background-image: "/data/icons/icons8-доступ-для-инвалидов-48.png"; */
+  top: -2%;
+  left: 91%;
 }
+
 </style>
