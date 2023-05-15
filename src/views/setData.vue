@@ -237,7 +237,7 @@
     bottom: 0;
   }
 
-    @media screen  and (max-width: 670px) {
+    @media screen  and (max-width: 1015px) {
       label[for="signin"] { margin-right: 20px; font-size: 12px; }
       label[for="signup"] { margin-right: 20px; font-size: 12px; }
       label[for="importantPlaces"] { margin-right: 20px; font-size: 12px; }
