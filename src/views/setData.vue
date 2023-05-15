@@ -68,7 +68,7 @@
             <ion-icon name="logo-instagram"></ion-icon>
           </a></li>
       </ul>
-      <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система Донского Государственного Технического Университета</p>
+      <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система ДГТУ</p>
     </footer>
   </body>
   
@@ -238,11 +238,14 @@
   }
 
     @media screen  and (max-width: 670px) {
+      label[for="signin"] { margin-right: 20px; font-size: 12px; }
+      label[for="signup"] { margin-right: 20px; font-size: 12px; }
+      label[for="importantPlaces"] { margin-right: 20px; font-size: 12px; }
         .inputData {
         width: 80%;
         height: 50%;
         position: absolute;
-        left: 25%;
+        left: 15%;
         top: 20%;
       }
       #wrapper .oneInput {
@@ -253,10 +256,14 @@
         font-family: 'Raleway', sans-serif;
         height: 72px;
         width: 90%;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         opacity: 1;
         text-indent: 20px;
         transition: all .2s ease-in-out;
+      }
+      #wrapper #arrow {
+        display: none;
+        /* overflow: hidden; */
       }
       .btn {
         background: #1f61c5;
@@ -266,14 +273,64 @@
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
         font-size: 27px;
-        height: 72px;
+        height: 71px;
         width: 91%;
         margin-bottom: 10px;
         overflow: hidden;
         transition: all .3s cubic-bezier(.6,0,.4,1);
       }
 
+      #wrapper #selectedPlaces {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 27px;
+        font-family: 'Raleway', sans-serif;
+        height: 40px;
+        width: 91%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
     }
+
+  .inputData .toggle {
+    position: absolute;
+    top: -34%;
+    left: 5%;
+    width: 60px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: #ddd;
+    margin: -20px -40px;
+    overflow: hidden;
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+  }
+
+  .inputData .icon-human {
+    position: absolute;
+    top: -40%;
+    left: -20%;
+  }
+
+  .inputData .icon-elevator {
+    position: absolute;
+    top: -39%;
+    left: 12%;
+  }
+
+  .footer .social-icon,
+  .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    padding: 0px;
+  }
+
+  }
 
   @media screen  and (min-width: 670px) {
       .wave {
@@ -434,12 +491,6 @@
   transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
   box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
   border-radius: 40px;
-}
-
-.icon-human {
-  position: absolute;
-  top: 37%;
-  left: 72%;
 }
 
 .toggle {
