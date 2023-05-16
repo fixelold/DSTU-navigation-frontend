@@ -1427,7 +1427,7 @@ export default {
 
 @media screen  and (max-width: 970px) {
     .map .floorThree {
-        width: 500px;
+        width: 400px;
         margin-top: -10%;
         margin-left: -14%;
     }
@@ -1464,7 +1464,7 @@ export default {
     margin-top: 10px;
 }
 
-button {
+.transitionBTN {
     background: lightsalmon;
     border: none;
     margin-left: 50%;
