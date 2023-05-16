@@ -278,7 +278,7 @@
         
         <div v-if="floor == 4" class="map">
             <!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1678.9" height="925.5" viewBox="0 0 1678.9 925.5">
+            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1678.9" height="925.5" viewBox="0 0 1678.9 925.5">
             <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
@@ -575,7 +575,7 @@
 
         <!-- two floor -->
         <div v-if="floor == 2" class="map">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
+            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
@@ -917,7 +917,7 @@
 
         <!-- one floor -->
         <div v-if="floor == 1" class="map">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
+            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
