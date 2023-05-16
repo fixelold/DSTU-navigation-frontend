@@ -1,9 +1,9 @@
 <template>
  <body>
         <div v-if="floor == 3" class="map">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
+            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
-                <rect class="st0" width="1678.9" height="925.5"/>
+                <rect style="text-align: center;" class="st0" width="1678.9" height="925.5"/>
             </g>
                 <rect x="3.5" y="25.5" class="st1" width="7" height="198"/>
                 <rect x="10.5" y="216.5" class="st1" width="179" height="7"/>
@@ -269,7 +269,14 @@
                         :width='item.w' 
                         :height='item.h' 
                 />
+
         </svg>
+        <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+        <!-- <div class="description">
+            <h1>{{startDescription}}</h1>
+            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+            <h1>{{endDescription}}</h1>
+        </div> -->
         </div>
         
         <div v-if="floor == 4" class="map">
@@ -1169,11 +1176,6 @@
                     />
             </svg>
         </div>
-            <div class="description">
-            <h1>{{startDescription}}</h1>
-            <h1>{{endDescription}}</h1>
-            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
-        </div>
     </body>
 
 </template>
@@ -1192,8 +1194,8 @@ export default {
       nextFloor: '',
       sectors: [],
       coordinates: [],
-      startDescription: '',
-      endDescription: '',
+      startDescription: 'jweofjwofjpwfpwjfpwoefjpowejfo',
+      endDescription: 'wfjwpofjwpfjpwejfpwfjpwejfpwjfwop',
       startAudPoints: [],
       endAudPoints: [],
       transitionSectors: [],
@@ -1416,32 +1418,78 @@ export default {
 
 <style>
 
-.transitionBTN {
-    background: #1f61c5;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      cursor: pointer;
-      font-family: 'Raleway', sans-serif;
-      font-size: 27px;
-      height: 72px;
-      width: 100%;
-      margin-bottom: 10px;
-      overflow: hidden;
-      transition: all .3s cubic-bezier(.6,0,.4,1);
+@media screen  and (max-width: 1015px) {
+    .map .floorThree {
+        width: 700px;
+        margin-left: -10%;
+    }
+}
+
+@media screen  and (max-width: 970px) {
+    .map .floorThree {
+        width: 500px;
+        margin-top: -10%;
+        margin-left: -14%;
+    }
+
+    .transitionBTN {
+        background: lightsalmon;
+        border: none;
+        margin-left: 10%;
+        margin-top: -92%;
+        background: #0f21c3;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+        font-size: 27px;
+        height: 72px;
+        width: 90%;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all .3s cubic-bezier(.6,0,.4,1);
+    }
 }
 
 .map {
     display: flex;
-    justify-content: space-between;
-    padding: 2em;
-    background-color: aliceblue;
+    flex-direction: column;
+    text-align: center;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+button {
+    background: lightsalmon;
+    border: none;
+    margin-left: 50%;
+    background: #0f21c3;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 27px;
+    height: 72px;
+    width: 30%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+}
+
+.map {
+   margin-left: 12%;
 }
 
 .map div {
     width: 50%;
     height: 2em;
-    background-color: aliceblue;
+    background-color: #ffffff;
 }
 
 .st0{fill:#ffffff;stroke:#000000;stroke-miterlimit:10;}
