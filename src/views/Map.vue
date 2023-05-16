@@ -272,11 +272,8 @@
 
         </svg>
         <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
-        <!-- <div class="description">
             <h1>{{startDescription}}</h1>
-            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
             <h1>{{endDescription}}</h1>
-        </div> -->
         </div>
         
         <div v-if="floor == 4" class="map">
@@ -573,7 +570,7 @@
                             :height='item.h' 
                     />
             </svg>
-
+            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
 
         <!-- two floor -->
@@ -914,8 +911,8 @@
                             :width='item.w' 
                             :height='item.h' 
                     />
-</svg>
-
+            </svg>
+            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
 
         <!-- one floor -->
@@ -1175,6 +1172,7 @@
                             :height='item.h' 
                     />
             </svg>
+            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
     </body>
 
@@ -1194,8 +1192,8 @@ export default {
       nextFloor: '',
       sectors: [],
       coordinates: [],
-      startDescription: 'jweofjwofjpwfpwjfpwoefjpowejfo',
-      endDescription: 'wfjwpofjwpfjpwejfpwfjpwejfpwjfwop',
+      startDescription: 'Аудитория 1-333 предназнаяена для лекций',
+      endDescription: 'Аудитория 1-433 предназнаяена для практик',
       startAudPoints: [],
       endAudPoints: [],
       transitionSectors: [],
@@ -1452,7 +1450,8 @@ export default {
     }
 }
 
-.map {
+.map .floorThree{
+    margin-left: -12%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -1467,7 +1466,8 @@ export default {
 .transitionBTN {
     background: lightsalmon;
     border: none;
-    margin-left: 50%;
+    margin-top: -10%;
+    margin-left: -6%;
     background: #0f21c3;
     border: none;
     border-radius: 8px;
