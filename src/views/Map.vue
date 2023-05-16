@@ -1436,7 +1436,7 @@ export default {
         background: lightsalmon;
         border: none;
         margin-left: 10%;
-        margin-top: -115%;
+        margin-top: -100%;
         background: #0f21c3;
         border: none;
         border-radius: 8px;
