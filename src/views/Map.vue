@@ -1432,11 +1432,11 @@ export default {
         margin-left: -14%;
     }
 
-    .transitionBTN {
+    .map .transitionBTN {
         background: lightsalmon;
         border: none;
         margin-left: 10%;
-        margin-top: -92%;
+        margin-top: -115%;
         background: #0f21c3;
         border: none;
         border-radius: 8px;
@@ -1476,7 +1476,7 @@ export default {
     font-family: 'Raleway', sans-serif;
     font-size: 27px;
     height: 72px;
-    width: 30%;
+    width: 100%;
     margin-bottom: 10px;
     overflow: hidden;
     transition: all .3s cubic-bezier(.6,0,.4,1);
