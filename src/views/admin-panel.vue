@@ -2,10 +2,10 @@
     <body>
 
       <div class="setData">
-        <button type="submit" v-on:click="showModal">Обновить описание
+        <button class="adminBtn" type="submit" v-on:click="showModal">Обновить описание
         </button>
 
-        <button type="submit" v-on:click="showImportantPlaces">
+        <button class="adminBtn" type="submit" v-on:click="showImportantPlaces">
           Важные места
         </button>
       </div>
@@ -28,7 +28,7 @@
             <ion-icon name="logo-instagram"></ion-icon>
           </a></li>
       </ul>
-      <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система Донского Государственного Технического Университета</p>
+      <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система ДГТУ</p>
     </footer>
   </body>
   
@@ -99,6 +99,29 @@ methods: {
       
 <style>
     @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
+
+  @media screen  and (max-width: 1015px) {
+    body .setData {
+      width: 80%;
+      left: 70%;
+    }
+
+      .setData .adminBtn {
+        background: #1f61c5;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+        font-size: 27px;
+        height: 72px;
+        width: 100%;
+        /* margin-left: 15%; */
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all .3s cubic-bezier(.6,0,.4,1);
+      }
+    }
   
   html, body { margin: 0; }
 

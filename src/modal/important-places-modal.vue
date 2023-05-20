@@ -4,13 +4,13 @@
                 <div class="modal-close" @click="close">&#10006;<br><br></div>
 
                 <input checked="" id="create" v-model="radioData" v-on:click="createData" name="action" type="radio" value="create">
-                <label for="create">Создать</label>
+                <label class="lab" for="create">Создать</label>
 
                 <input id="update" v-model="radioData" v-on:click="updateData" name="action" type="radio" value="update">
-                <label for="update">Обновить</label>
+                <label class="lab" for="update">Обновить</label>
         
                 <input id="delete" v-model="radioData" v-on:click="deleteData" name="action" type="radio" value="delete" >
-                <label for="delete">Удалить</label>
+                <label class="lab" for="delete">Удалить</label>
         
                 <div id="wrapper">
                     <div id="arrow"></div>
@@ -18,7 +18,7 @@
                     <input id="updateInput" v-model="twoData" :placeholder='this.two' type="text">
                     <input id="deleteInput" v-model="threeData" :placeholder='this.three' type="text">
                     </div>
-                <button type="submit" v-on:click="distributor">
+                <button class="placesBtn" type="submit" v-on:click="distributor">
                 <span>
                     <br>
                     Создать
@@ -179,6 +179,99 @@ import axios from 'axios'
 <style scoped
 lang="scss">
 
+  @media screen  and (max-width: 1015px) {
+      .importantPlaces .lab {
+        margin-right: 15px;
+        font-size: 15px;
+      }
+      /* label[for="create"] {font-size: 11px; }
+      label[for="update"] { margin-right: 0px; font-size: 11px; }
+      label[for="delete"] { margin-right: 0px; font-size: 11px; } */
+        .modal-shadow .importantPlaces {
+          background: #226fe2;
+          border-radius: 10px;
+          /* padding: 15px; */
+          margin-left: -40%;
+          min-width: 200px;
+          max-width: 280px;
+          position: absolute;
+          top: 50%;
+      }
+      .importantPlaces #createInput {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        height: 72px;
+        width: 94%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+      }
+
+      .importantPlaces #updateInput {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        height: 72px;
+        width: 94%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+      }
+
+      .importantPlaces #deleteInput {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        height: 72px;
+        width: 94%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+      }
+      #wrapper #arrow {
+        display: none;
+        /* overflow: hidden; */
+      }
+      .importantPlaces .placesBtn {
+        background: #1f61c5;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+        font-size: 27px;
+        height: 71px;
+        width: 96%;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all .3s cubic-bezier(.6,0,.4,1);
+      }
+
+      #wrapper #selectedPlaces {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 27px;
+        font-family: 'Raleway', sans-serif;
+        height: 40px;
+        width: 91%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+    }
+  }
+
 .modal-shadow {
         position: absolute;
         top: 0;
@@ -227,7 +320,7 @@ lang="scss">
   #create:checked ~ #wrapper #arrow { left: 40px; }
   #create:checked ~ button span { transform: translate3d(0,-72px,0); }
 
-  #update:checked ~ #wrapper { height: 260px; }
+  #update:checked ~ #wrapper { height: 270px; }
   #update:checked ~ #wrapper #arrow { left: 210px; }
   #update:checked ~ button span { transform: translate3d(0,-144px,0); }
   #update:checked ~ .importantPlaces { height: 425px; }
@@ -331,5 +424,6 @@ lang="scss">
   100% {
     background-positon-x: 0px;
   }
+
 }
 </style>

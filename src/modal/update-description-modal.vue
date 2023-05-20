@@ -68,4 +68,44 @@ lang="scss">
       max-width: 480px;
       position: absolute;
   }
+
+  @media screen  and (max-width: 1015px) {
+    .setData {
+        background: #226fe2;
+        border-radius: 10px;
+        /* padding: 15px; */
+        margin-left: -60%;
+        min-width: 200px;
+        max-width: 280px;
+        position: absolute;
+    }
+      .setData #email, #pass {
+        background: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        height: 72px;
+        width: 100%;
+        margin-bottom: 20px;
+        opacity: 1;
+        text-indent: 20px;
+        transition: all .2s ease-in-out;
+      }
+
+      .setData .signBtn {
+        background: #1f61c5;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+        font-size: 27px;
+        height: 71px;
+        width: 102%;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all .3s cubic-bezier(.6,0,.4,1);
+      }
+  }
 </style>
