@@ -5,8 +5,8 @@
         <input id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud" checked>
         <label for="signin">Ввод аудиторий</label>
 
-        <input id="signup" v-model="radioValue" v-on:click="signInData" name="action" type="radio" value="login" >
-        <label for="signup">Войти</label>
+        <!-- <input id="signup" v-model="radioValue" v-on:click="signInData" name="action" type="radio" value="login" >
+        <label for="signup">Войти</label> -->
 
         <input id="importantPlaces" v-model="radioValue" v-on:click="importantPlacesData" name="action" type="radio" value="importantPlaces" >
         <label for="importantPlaces">Важные места</label>
@@ -29,9 +29,6 @@
             <br>
             Проложить путь
             <br>
-            Войти
-            <br>
-            Проложить путь
           </span>
         </button>
 
@@ -70,6 +67,8 @@
       </ul>
       <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система ДГТУ</p>
     </footer>
+
+    <button type="submit" class="admin" v-on:click="signInModal">Вход администратора</button>
   </body>
   
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>
@@ -77,14 +76,17 @@
 
   <DataModal v-show="isModalVisible"  @close="closeModal"></DataModal>
   <LoginModal v-show="isModalVisibleLogin"  @close="closeLoginModal"></LoginModal>
+  <SignInModal v-show="isSignInModal"  @close="closeSignInModal"></SignInModal>
 </template>
     
 <script>
   import axios from 'axios'
   import DataModal from '../modal/data-modal.vue'
+  import SignInModal from '../modal/signin-modal.vue'
   export default {
   components: {
     DataModal,
+    SignInModal,
   },
 
   data() {
@@ -102,11 +104,20 @@
       importantPlaces: [],
       selectedImportantPlaces: '',
       tmp: '',
-      checked: false
+      checked: false,
+      isSignInModal: false
     };
   },
 
   methods: {
+    signInModal() {
+      this.isSignInModal = true;
+    },
+
+    closeSignInModal() {
+      this.isSignInModal = false;
+    },
+
     distributor() {
       if (this.radioValue == "aud") {
         if (this.dataOne == '' && this.dataTwo == '') {
@@ -227,6 +238,13 @@
       top: 20%;
       /* min-width: 48%; */
 
+    }
+
+    .admin {
+      width: 150px;
+      height: 50px;
+      font-size: 15px;
+      float: right;
     }
 
     footer {
@@ -408,7 +426,7 @@
     #signin:checked ~ button span { transform: translate3d(0,-72px,0); }
   
     #importantPlaces:checked ~ #wrapper { height: 178px; }
-    #importantPlaces:checked ~ #wrapper #arrow { left: 420px; }
+    #importantPlaces:checked ~ #wrapper #arrow { left: 320px; }
     #importantPlaces:checked ~ button span { transform: translate3d(0,-72px,0); }
     #importantPlaces:checked ~ #wrapper #pass  { display: none; }
 
