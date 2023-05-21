@@ -1201,7 +1201,8 @@ export default {
       stairs: 1,
       transitionNumber: '0',
       items: [ ],
-      checkehd: false
+      checkehd: false,
+      response: []
   };
 },
 
@@ -1316,7 +1317,10 @@ export default {
       async getSectors() {
           await axios 
               .get("http://92.63.99.78:8080/api/v1/get-sectors?start=" + this.start + "&end=" + this.end + "&type_transtion_sector=" + this.stairs)
-              .then(response => {this.sectors = response.data['sectors']})
+              .then(response => {
+                this.sectors = response.data['sectors'];
+            })
+            .catch(err => {  window.location.href = "/"; alert("Ошибка. Скорее всего аудитории не сущетсвует!")})
       },
       async getCoordinates() {
           
