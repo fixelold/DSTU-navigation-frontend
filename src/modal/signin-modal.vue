@@ -74,7 +74,7 @@
         background: #226fe2;
         border-radius: 10px;
         /* padding: 15px; */
-        margin-left: -40%;
+        margin-left: -60%;
         min-width: 200px;
         max-width: 280px;
         position: absolute;

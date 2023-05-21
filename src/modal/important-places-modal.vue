@@ -201,7 +201,7 @@ lang="scss">
         background: #fff;
         border: none;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 12px;
         font-family: 'Raleway', sans-serif;
         height: 72px;
         width: 94%;
@@ -215,7 +215,7 @@ lang="scss">
         background: #fff;
         border: none;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 12px;
         font-family: 'Raleway', sans-serif;
         height: 72px;
         width: 94%;
@@ -229,7 +229,7 @@ lang="scss">
         background: #fff;
         border: none;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 12px;
         font-family: 'Raleway', sans-serif;
         height: 72px;
         width: 94%;
