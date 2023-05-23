@@ -270,7 +270,23 @@
                         :height='item.h' 
                 />
 
+                <rect class="start"
+                        :x='this.startAudPoints.x'  
+                        :y='this.startAudPoints.y' 
+                        :width='this.startAudPoints.widht'  
+                        :height='this.startAudPoints.height'
+                />
+
+                <rect class="end"
+                        :x='this.endAudPoints.x'  
+                        :y='this.endAudPoints.y' 
+                        :width='this.endAudPoints.widht' 
+                        :height='this.endAudPoints.height' 
+                />
+
+
         </svg>
+
         <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
             <h1>{{startDescription}}</h1>
             <h1>{{endDescription}}</h1>
@@ -569,6 +585,20 @@
                             :width='item.w' 
                             :height='item.h' 
                     />
+
+                    <rect class="aud"
+                        :x='startAudPoints.x'  
+                        :y='startAudPoints.y' 
+                        :width='startAudPoints.w' 
+                        :height='startAudPoints.h' 
+                />
+
+                <rect class="aud"
+                        :x='endAudPoints.x'  
+                        :y='endAudPoints.y' 
+                        :width='endAudPoints.w' 
+                        :height='endAudPoints.h' 
+                />
             </svg>
             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
@@ -905,12 +935,26 @@
                 <rect x="1474.5" y="118.5" class="st1" width="3" height="25"/>
             </g>
 
-            <rect class="path" v-for="item in items" :key="item"
-                            :x='item.x'  
-                            :y='item.y' 
-                            :width='item.w' 
-                            :height='item.h' 
-                    />
+                    <rect class="path" v-for="item in items" :key="item"
+                                    :x='item.x'  
+                                    :y='item.y' 
+                                    :width='item.w' 
+                                    :height='item.h' 
+                            />
+
+                            <rect class="aud"
+                        :x='startAudPoints.x'  
+                        :y='startAudPoints.y' 
+                        :width='startAudPoints.w' 
+                        :height='startAudPoints.h' 
+                />
+
+                <rect class="aud"
+                        :x='endAudPoints.x'  
+                        :y='endAudPoints.y' 
+                        :width='endAudPoints.w' 
+                        :height='endAudPoints.h' 
+                />
             </svg>
             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
@@ -1171,6 +1215,20 @@
                             :width='item.w' 
                             :height='item.h' 
                     />
+
+                    <rect class="aud"
+                        :x='startAudPoints.x'  
+                        :y='startAudPoints.y' 
+                        :width='startAudPoints.w' 
+                        :height='startAudPoints.h' 
+                />
+
+                <rect class="aud"
+                        :x='endAudPoints.x'  
+                        :y='endAudPoints.y' 
+                        :width='endAudPoints.w' 
+                        :height='endAudPoints.h' 
+                />
             </svg>
             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
         </div>
@@ -1202,7 +1260,8 @@ export default {
       transitionNumber: '0',
       items: [ ],
       checkehd: false,
-      response: []
+      response: [],
+      transitionNumberForAudColoring: 2,
   };
 },
 
@@ -1225,6 +1284,7 @@ export default {
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
+                        this.getAudPoints().then(() => {  this.$cookies.set("opas", this.endAudPoints); this.$cookies.set("opa", this.startAudPoints)})
                         // this.getAudDescription().then(() => {
                         //     this.getAudPoints().then(() => {this.coloringAudience()})
                         // })
@@ -1386,9 +1446,10 @@ export default {
               .get("http://92.63.99.78:8080/api/v1/points/aud-points?start=" + this.start + 
               "&end=" + this.end + 
               "&transition=" + this.transition + 
-              "&transition_number=" + this.transitionNumber)
+              "&transition_number=" + this.transitionNumberForAudColoring)
               .then(response => {
                 this.startAudPoints = response.data['start'];
+                // alert(this.startAudPoints.x);
                 this.endAudPoints = response.data['end'];
               })
       },
@@ -1508,8 +1569,11 @@ export default {
 .st9{font-size:11px;}
 .st10{font-size:13.24px;}
 
-.path{fill:#922c2c;}
-.aud{fill:#922c2c; fill-opacity:  1;}
+.path{fill:#222976;}
+/* .aud{fill:#922c2c; fill-opacity:  1;} */
+
+.start{fill:#922c2c; opacity: 0.4;}
+.end{fill:green; opacity: 0.4;}
 
 /* .st0{fill:#1FE2FF;stroke:#000000;stroke-miterlimit:10;} */
 .st1{fill:#979797;stroke:#000000;stroke-miterlimit:10;}
