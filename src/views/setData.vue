@@ -69,6 +69,7 @@
     </footer>
 
     <button type="submit" class="admin" v-on:click="signInModal">Вход администратора</button>
+    <button type="submit" class="evacuation" v-on:click="evacuation">Эвакуация</button>
   </body>
   
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>
@@ -407,6 +408,7 @@
       }
     }
   }
+
     #selectedPlaces {
       background: #fff;
       border: none;
@@ -534,6 +536,22 @@
   position: absolute;
   top: -2%;
   left: 91%;
+}
+
+.evacuation {
+  background: #1f61c5;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  height: 71px;
+  width: 10%;
+  /* top: -30%; */
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(.6,0,.4,1);
 }
 
 </style>
