@@ -69,7 +69,7 @@
     </footer>
 
     <button type="submit" class="admin" v-on:click="signInModal">Вход администратора</button>
-    <button type="submit" class="evacuation" v-on:click="evacuation">Эвакуация</button>
+    <!-- <button type="submit" class="evacuation" v-on:click="evacuation">Эвакуация</button> -->
   </body>
   
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>

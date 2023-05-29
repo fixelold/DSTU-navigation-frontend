@@ -294,7 +294,7 @@
         
         <div v-if="floor == 4" class="map">
             <!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1678.9" height="925.5" viewBox="0 0 1678.9 925.5">
+            <svg class="floorFour" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925.5" viewBox="0 0 1678.9 925.5">
             <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
@@ -586,26 +586,29 @@
                             :height='item.h' 
                     />
 
-                    <rect class="aud"
-                        :x='startAudPoints.x'  
-                        :y='startAudPoints.y' 
-                        :width='startAudPoints.w' 
-                        :height='startAudPoints.h' 
+                    <rect class="start"
+                        :x='this.startAudPoints.x'  
+                        :y='this.startAudPoints.y' 
+                        :width='this.startAudPoints.widht'  
+                        :height='this.startAudPoints.height'
                 />
 
-                <rect class="aud"
-                        :x='endAudPoints.x'  
-                        :y='endAudPoints.y' 
-                        :width='endAudPoints.w' 
-                        :height='endAudPoints.h' 
+                <rect class="end"
+                        :x='this.endAudPoints.x'  
+                        :y='this.endAudPoints.y' 
+                        :width='this.endAudPoints.widht' 
+                        :height='this.endAudPoints.height' 
                 />
+
             </svg>
-            <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+            <h1>{{startDescription}}</h1>
+            <h1>{{endDescription}}</h1>
         </div>
 
         <!-- two floor -->
         <div v-if="floor == 2" class="map">
-            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
+            <svg class="floorTwo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
@@ -942,26 +945,29 @@
                                     :height='item.h' 
                             />
 
-                            <rect class="aud"
-                        :x='startAudPoints.x'  
-                        :y='startAudPoints.y' 
-                        :width='startAudPoints.w' 
-                        :height='startAudPoints.h' 
+                            <rect class="start"
+                        :x='this.startAudPoints.x'  
+                        :y='this.startAudPoints.y' 
+                        :width='this.startAudPoints.widht'  
+                        :height='this.startAudPoints.height'
                 />
 
-                <rect class="aud"
-                        :x='endAudPoints.x'  
-                        :y='endAudPoints.y' 
-                        :width='endAudPoints.w' 
-                        :height='endAudPoints.h' 
+                <rect class="end"
+                        :x='this.endAudPoints.x'  
+                        :y='this.endAudPoints.y' 
+                        :width='this.endAudPoints.widht' 
+                        :height='this.endAudPoints.height' 
                 />
+
             </svg>
             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+            <h1>{{startDescription}}</h1>
+            <h1>{{endDescription}}</h1>
         </div>
 
         <!-- one floor -->
         <div v-if="floor == 1" class="map">
-            <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1679" height="925" viewBox="0 0 1679 925">
+            <svg class="floorOne" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
                 <rect class="st0" width="1678.9" height="925.5"/>
             </g>
@@ -1215,22 +1221,24 @@
                             :width='item.w' 
                             :height='item.h' 
                     />
-
-                    <rect class="aud"
-                        :x='startAudPoints.x'  
-                        :y='startAudPoints.y' 
-                        :width='startAudPoints.w' 
-                        :height='startAudPoints.h' 
+                    <rect class="start"
+                        :x='this.startAudPoints.x'  
+                        :y='this.startAudPoints.y' 
+                        :width='this.startAudPoints.widht'  
+                        :height='this.startAudPoints.height'
                 />
 
-                <rect class="aud"
-                        :x='endAudPoints.x'  
-                        :y='endAudPoints.y' 
-                        :width='endAudPoints.w' 
-                        :height='endAudPoints.h' 
+                <rect class="end"
+                        :x='this.endAudPoints.x'  
+                        :y='this.endAudPoints.y' 
+                        :width='this.endAudPoints.widht' 
+                        :height='this.endAudPoints.height' 
                 />
+
             </svg>
             <button v-if="transition != 1" class="transitionBTN" type="submit" v-on:click="drawPathTransitionToAud">Перейти на {{nextFloor}} этаж</button>
+            <h1>{{startDescription}}</h1>
+            <h1>{{endDescription}}</h1>
         </div>
     </body>
 
@@ -1261,7 +1269,8 @@ export default {
       items: [ ],
       checkehd: false,
       response: [],
-      transitionNumberForAudColoring: 2,
+      transitionNumberForAudColoring: '',
+      earlyFloor: '',
   };
 },
 
@@ -1284,7 +1293,7 @@ export default {
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        this.getAudPoints().then(() => {  this.$cookies.set("opas", this.endAudPoints); this.$cookies.set("opa", this.startAudPoints)})
+                        this.getAudPoints().then(() => {})
                         // this.getAudDescription().then(() => {
                         //     this.getAudPoints().then(() => {this.coloringAudience()})
                         // })
@@ -1317,7 +1326,7 @@ export default {
                 // this.sectors.push(this.transitionSectors[1]);
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        // this.getAudPoints().then(() => {this.coloringAudience()})
+                        this.getAudPoints().then(() => {})
                     })
                 })
             })
@@ -1325,6 +1334,11 @@ export default {
       },
 
       drawPathTransitionToAud() {
+        if (this.earlyFloor == this.nextFloor) {
+            this.items = [];
+            this.controller();
+        } else {
+            this.earlyFloor = this.floor
         this.items = [];
         this.floor = this.nextFloor
         if (this.end[2] == 4) {
@@ -1357,12 +1371,14 @@ export default {
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        // this.getAudDescription().then(() => {
-                        //     this.getAudPoints().then(() => {this.coloringAudience()})
-                        // })
+                        this.nextFloor = this.earlyFloor;
+                        this.transition = 4;
+                        this.getAudPoints();
                     })
                 })
             })
+        }
+     
       },
 
       async getAudDescription() {
@@ -1446,7 +1462,7 @@ export default {
               .get("http://92.63.99.78:8080/api/v1/points/aud-points?start=" + this.start + 
               "&end=" + this.end + 
               "&transition=" + this.transition + 
-              "&transition_number=" + this.transitionNumberForAudColoring)
+              "&transition_number=" + this.transitionNumber)
               .then(response => {
                 this.startAudPoints = response.data['start'];
                 // alert(this.startAudPoints.x);
@@ -1485,11 +1501,47 @@ export default {
     .map .floorThree {
         width: 700px;
         margin-left: -10%;
-    }
+    };
+
+    .map .floorOne {
+        width: 700px;
+        margin-left: -10%;
+    };
+
+    .map .floorTwo{
+        width: 700px;
+        margin-left: -10%;
+    };
+
+    .map .floorFour{
+        width: 700px;
+        margin-left: -10%;
+    };
 }
 
 @media screen  and (max-width: 970px) {
     .map .floorThree {
+        width: 400px;
+        height: 300px;
+        margin-top: -10%;
+        margin-left: -14%;
+    }
+
+    .map .floorFour {
+        width: 400px;
+        height: 300px;
+        margin-top: -10%;
+        margin-left: -14%;
+    }
+
+    .map .floorOne {
+        width: 400px;
+        height: 300px;
+        margin-top: -10%;
+        margin-left: -14%;
+    }
+
+    .map .floorTwo {
         width: 400px;
         height: 300px;
         margin-top: -10%;
@@ -1523,13 +1575,34 @@ export default {
     text-align: center;
 }
 
+.map .floorOne{
+    margin-left: -12%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.map .floorTwo{
+    margin-left: -12%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.map .floorFour{
+    margin-left: -12%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .description {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
 }
 
-.transitionBTN {
+.map .transitionBTN {
     border: none;
     margin-top: -10%;
     margin-left: -6%;
