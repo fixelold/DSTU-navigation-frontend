@@ -105,7 +105,7 @@
       importantPlaces: [],
       selectedImportantPlaces: '',
       tmp: '',
-      checked: false,
+      checked: false, // нужен ли пользователю лифт
       isSignInModal: false
     };
   },

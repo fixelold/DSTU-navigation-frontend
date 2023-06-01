@@ -1252,25 +1252,25 @@ import { toRaw } from 'vue';
 export default {
     data() {
     return {
-      start: '',
-      end: '',
-      floor: '',
-      nextFloor: '',
-      sectors: [],
-      coordinates: [],
-      startDescription: 'Аудитория 1-353 предназнаяена для лекций',
-      endDescription: 'Аудитория 1-449 предназнаяена для практик',
-      startAudPoints: [],
-      endAudPoints: [],
-      transitionSectors: [],
-      transition: 1,
+      start: '', // номер начальной аудитории
+      end: '', // номер конечной аудитории
+      floor: '', // номер этажа
+      nextFloor: '', // номер следующего этажа
+      sectors: [], // номера секторов
+      coordinates: [], // координаты точек
+      startDescription: '', // описание начальной аудитории
+      endDescription: '', // описание конечной аудитории
+      startAudPoints: [], // координаты начальной аудитории
+      endAudPoints: [], // координаты конечной аудитории
+      transitionSectors: [], // переходный сектор
+      transition: '', // тип перехода
       stairs: 1,
-      transitionNumber: '0',
-      items: [ ],
-      checkehd: false,
+      transitionNumber: '0', // номер переходного сектора
+      items: [], // items для координат пути 
+      checkehd: false, // нужен ли пользователю лифт
       response: [],
-      transitionNumberForAudColoring: '',
-      earlyFloor: '',
+      transitionNumberForAudColoring: '', // номер переходного сектора для отрисовки
+      earlyFloor: '', // номер прошлого этажа
   };
 },
 
@@ -1278,55 +1278,36 @@ export default {
     controller() {
         this.start = this.$cookies.get("start");
         this.end = this.$cookies.get("end");
-        if (this.start[2] == 3) {
-            this.floor = 3
-        } else if (this.start[2] == 4) {
-            this.floor = 4
-        } else if (this.start[2] == 2) {
-            this.floor = 2
-        } else if (this.start[2] == 1) {
-            this.floor = 1
-        }
+        this.floor = this.start[2];
+
+
         if (this.start[2] == this.end[2]) {
             this.stairs = 1;
-            this.transition = 1;
+            this.transition = 1; // перехода между этажами нет
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        this.getAudPoints().then(() => {})
-                        // this.getAudDescription().then(() => {
-                        //     this.getAudPoints().then(() => {this.coloringAudience()})
-                        // })
+                        this.getAudPoints().then()
                     })
                 })
             })
+            
         } else {
-            if (this.end[2] == 4) {
-                this.nextFloor = 4
-            } else if (this.end[2] == 3) {
-                this.nextFloor = 3
-            } else if (this.end[2] == 2) {
-                this.nextFloor = 2
-            }else if (this.end[2] == 1) {
-                this.nextFloor = 1
-            }
+            this.nextFloor = this.end[2]
             this.checked = this.$cookies.get("checked");
             if (this.checked == 'true') {
-                this.transition = 3;
+                this.transition = 3; // тип перехода лифт
                 this.stairs = 3;
             } else {
-                this.transition = 2;
+                this.transition = 2; // тип перехода лестница
                 this.stairs = 2;
             }
             this.getSectors().then(() => {
+                // получаем номера секторов, и номером переходного сеткора будет первый второй сектор
                 this.transitionNumber = this.sectors[1];
-                // this.transitionSectors = this.sectors;
-                // this.sectors = [];
-                // this.sectors.push(this.transitionSectors[0]);
-                // this.sectors.push(this.transitionSectors[1]);
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        this.getAudPoints().then(() => {})
+                        this.getAudPoints().then()
                     })
                 })
             })
@@ -1339,40 +1320,21 @@ export default {
             this.controller();
         } else {
             this.earlyFloor = this.floor
-        this.items = [];
-        this.floor = this.nextFloor
-        if (this.end[2] == 4) {
+            this.items = [];
+            this.floor = this.nextFloor
+
             this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '4' + this.transitionNumber[3]
-            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + '4' + this.transitionNumber[3]
+            this.start = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
+            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
             this.transitionNumber = parseInt(this.transitionNumber)
-        } else if (this.end[2] == 3) {
-            this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '3' + this.transitionNumber[3]
-            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + '3' + this.transitionNumber[3]
-            this.transitionNumber = parseInt(this.transitionNumber)
-        } else if (this.end[2] == 2) {
-            this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '2' + this.transitionNumber[3]
-            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + '2' + this.transitionNumber[3]
-            this.transitionNumber = parseInt(this.transitionNumber)
-            this.$cookies.set("test", this.sectors);
-        }else if (this.end[2] == 1) {
-            this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + '1' + this.transitionNumber[3]
-            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + '1' + this.transitionNumber[3]
-            this.transitionNumber = parseInt(this.transitionNumber)
-        }
-        // if (this.transition == 3) {
-        //     this.start = this.sectors[this.sectors.length - 1]
-        // }
-        this.transition = 4;
-        this.stairs = 1;
+
+            this.transition = 4; // тип перехода от переходного сектора до конечной аудитории
+            this.stairs = 1;
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
                         this.nextFloor = this.earlyFloor;
-                        this.transition = 4;
+                        // this.transition = 4;
                         this.getAudPoints();
                     })
                 })
@@ -1406,7 +1368,6 @@ export default {
             sectors: toRaw(this.sectors), 
             transition: this.transition, 
             transition_number: parseInt(this.transitionNumber)});
-            console.log("data json - ", json)
           await axios({
               method: 'post',
               url: 'http://92.63.99.78:8080/api/v1/points/points', 
@@ -1414,34 +1375,8 @@ export default {
           }).then(response => {this.coordinates = response.data});
       },
 
-      drawImage() {
-          this.canvas = this.$refs.canRef;
-          this.ctx = this.canvas.getContext('2d');
-          this.img = new Image();
-          this.img.src = this.items[0].src;
-          this.img.onload = () => {
-              this.ctx.drawImage(this.img, 0, 0);
-          }
-      },
-
-      clearImage() {
-            this.ctx.clearRect(0, 0, 500, 1000);
-            this.ctx.globalAlpha = 1.0;
-            this.canvas = this.$refs.canRef;
-            this.ctx = this.canvas.getContext('2d');
-            this.img = new Image();
-            this.img.src = this.items[0].src;
-            this.img.onload = () => {
-            this.ctx.drawImage(this.img, 0, 0);
-          }
-      },
-
       async drawPath() {
           for (let i = 0; i < this.coordinates.length; i++) {
-            //   var c = document.getElementById("c");
-            //   var ctx = c.getContext("2d");   
-            //   ctx.beginPath();
-
             if (this.coordinates[i]['widht'] < 0) {
                 this.coordinates[i]['x'] = this.coordinates[i]['x'] - Math.abs(this.coordinates[i]['widht'])
                 this.coordinates[i]['widht'] = Math.abs(this.coordinates[i]['widht'])
@@ -1454,7 +1389,6 @@ export default {
 
             this.items.push({x:this.coordinates[i]['x'], y:this.coordinates[i]['y'], w:this.coordinates[i]['widht'], h:this.coordinates[i]['height']})
           }
-          console.log("posle items - ", this.items)
       },
 
       async getAudPoints() {
@@ -1465,28 +1399,10 @@ export default {
               "&transition_number=" + this.transitionNumber)
               .then(response => {
                 this.startAudPoints = response.data['start'];
-                // alert(this.startAudPoints.x);
                 this.endAudPoints = response.data['end'];
               })
       },
 
-      async coloringAudience() {
-        var c = document.getElementById("c");
-        var ctx = c.getContext("2d");   
-        ctx.beginPath();
-        ctx.rect(this.startAudPoints['x'],this.startAudPoints['y'],this.startAudPoints['widht'],this.startAudPoints['height']);
-        ctx.fillStyle = "red";
-        ctx.globalAlpha = 0.3;
-        ctx.fill();
-
-        var c = document.getElementById("c");
-        var ctx = c.getContext("2d");   
-        ctx.beginPath();
-        ctx.rect(this.endAudPoints['x'],this.endAudPoints['y'],this.endAudPoints['widht'],this.endAudPoints['height']);
-        ctx.fillStyle = "green";
-        ctx.globalAlpha = 0.3;
-        ctx.fill();
-      }
   },
 
   mounted() {
