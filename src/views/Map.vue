@@ -1357,11 +1357,14 @@ export default {
                 this.sectors = response.data['sectors'];
             })
             .catch(err => { 
-                if (err.response.status == 500) {
-                    window.
-                    console.log("opa")
+                if (err.response.data['error'] == 'no rows in result set') {
+                    window.location.href = "/";
+                    alert("Ошибка! Возможно аудитории не существует");
+                } else {
+                    window.location.href = "/";
+                    alert("Ошибка сервера");
                 }
-                console.log("error: ", err.response.statusText) })
+            })
       },
       async getCoordinates() {
           
