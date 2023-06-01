@@ -1,4 +1,8 @@
 <template>
+
+    <div class="backBtn">
+        <button class="backBtn" type="submit" v-on:click="back">Назад</button>
+    </div>
  <body>
         <div v-if="floor == 3" class="map">
             <svg class="floorThree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
@@ -1417,6 +1421,10 @@ export default {
             })
     },
 
+    back() {
+      window.location.href = "/";
+    }
+
   },
 
   mounted() {
@@ -1427,7 +1435,20 @@ export default {
 
 <style>
 
+.backBtn {
+      width: 60%;
+      height: 30%;
+      font-size: 20px;
+    }
+
 @media screen  and (max-width: 1015px) {
+
+    .backBtn {
+      width: 60%;
+      height: 30%;
+      font-size: 20px;
+    }
+
     .map .floorThree {
         width: 700px;
         margin-left: -10%;

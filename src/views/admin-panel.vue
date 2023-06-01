@@ -1,6 +1,10 @@
 <template>
     <body>
 
+      <div class="backBtn">
+        <button class="backBtn" type="submit" v-on:click="back">Назад</button>
+      </div>
+
       <div class="setData">
         <button class="adminBtn" type="submit" v-on:click="showModal">Обновить описание
         </button>
@@ -61,21 +65,21 @@ import axios from 'axios'
   },
 
 methods: {
-  async update() {
-    this.jwtToken = this.$cookies.get("token");
-    const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
+    async update() {
+      this.jwtToken = this.$cookies.get("token");
+      const json = JSON.stringify({ auditory_id: this.auditory_id, description: this.description, token: this.jwtToken});
 
-      await axios({
-        headers: {
-          'Accept' : 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          Authorization: "Bearer " + this.jwtToken,
-        },
-        method: 'post',
-        url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
-        data: json 
-    }).then(response => {this.coordinates = response.data});
-    },
+        await axios({
+          headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            Authorization: "Bearer " + this.jwtToken,
+          },
+          method: 'post',
+          url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
+          data: json 
+      }).then(response => {this.coordinates = response.data});
+      },
 
     showModal() {
       this.isModalVisible = true;
@@ -92,6 +96,10 @@ methods: {
     closeImportantPlaces() {
       this.isImportantPlaces = false;
     },
+
+    back() {
+      window.location.href = "/";
+    }
   }
 }
 
@@ -100,10 +108,22 @@ methods: {
 <style>
     @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
 
+    .backBtn {
+      width: 30%;
+      height: 30%;
+      font-size: 20px;
+    }
+
   @media screen  and (max-width: 1015px) {
     body .setData {
       width: 80%;
       left: 70%;
+    }
+
+    .backBtn {
+      width: 60%;
+      height: 30%;
+      font-size: 20px;
     }
 
       .setData .adminBtn {
