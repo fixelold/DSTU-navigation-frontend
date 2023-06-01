@@ -101,13 +101,29 @@ import axios from 'axios'
             method: 'post',
             url: 'http://92.63.99.78:8080/api/v1/places/create', 
             data: json 
-        });
+        }).catch(
+          err => {
+            if (err.response.status == 500) {
+              alert("Ошибка! Не удалось создать важное место")
+            } else if (err.response.status == 409) {
+              alert("Важное место уже существует")
+            }
+          }
+        ).then(response => {if (response.status == 200 ) {alert("Важное место создано")}});
         },
 
         async read() {
-          console.log("number - ", this.twoData)
           await axios 
-              .get("http://92.63.99.78:8080/api/v1/auditory?number=" + this.twoData)
+              .get("http://92.63.99.78:8080/api/v1/auditory?number=" + this.twoData).
+              catch(
+                  err => {
+                    if (err.response.status == 500) {
+                      alert("Ошибка! Аудитории не существует!")
+                    } else if (err.response.status == 400) {
+                      alert("Ошибка! Введен неправильный формат данных")
+                    }
+                  }
+              )
               .then(response => { this.auditory_id = response.data.id})
         },
 
@@ -124,7 +140,15 @@ import axios from 'axios'
             method: 'put',
             url: 'http://92.63.99.78:8080/api/v1/places/update?id=' + this.auditory_id, 
             data: json 
-          });
+          }).catch(
+          err => {
+            if (err.response.status == 500) {
+              alert("Ошибка! Не удалось обновить важное место")
+            } else if (err.response.status == 404) {
+              alert("Важного места не существует")
+            }
+          }
+        ).then(response => {if (response.status == 200 ) {alert("Важное место обновлено")}});
           },
 
         async delete() {
@@ -138,7 +162,17 @@ import axios from 'axios'
             },
             method: 'delete',
             url: 'http://92.63.99.78:8080/api/v1/places/delete?id=' + this.auditory_id, 
-          });
+          }).catch(
+          err => {
+            if (err.response.status == 500) {
+              alert("Ошибка! Не удалось удалить важное место")
+            } else if (err.response.status == 404) {
+              alert("Важного места не существует")
+            } else if (err.response.status == 400) {
+              alert("Ошибка! Введен неправильный формат данных")
+            }
+          }
+        ).then(response => {if (response.status == 200 ) {alert("Важное место удалено")}});;
         },
 
         close: function () {
