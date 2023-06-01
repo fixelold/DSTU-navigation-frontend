@@ -41,7 +41,14 @@ export default {
           method: 'post',
           url: 'http://92.63.99.78:8080/api/v1/auditory/update', 
           data: json 
-      }).then(response => {this.coordinates = response.data});
+      }).catch(err => {
+          if (err.response.data['error'] == 'no rows in result set') {
+            alert("Ошибка! Скорее всего такой аудитории не существует!")
+          }
+          else {
+            alert("Произошла ошибка!")
+          }
+        }).then(response => {if (response.status == 200) {alert("Описание аудитории обновлено")}});
       },
       close: function () {
           this.$emit('close');
