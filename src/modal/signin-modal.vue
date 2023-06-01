@@ -35,7 +35,14 @@
             method: 'post',
             url: 'http://92.63.99.78:8080/api/v1/user/signin', 
             data: json 
-        }).then(response => {
+        }).catch(
+          err => {
+            console.log("response error: ", err.response)
+            if (err.response.status == 401) {
+              alert("Неверный логин или пароль!")
+            }
+          }
+        ).then(response => {
           this.jwtToken = response.data['token'];
           this.$cookies.set("token", this.jwtToken)
           window.location.href = "/admin-panel";});
