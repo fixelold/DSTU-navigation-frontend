@@ -1285,7 +1285,7 @@ export default {
             this.getSectors().then(() => {
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        this.getAudPoints().then()
+                        this.getAudPoints().then(() => {this.getAudDescription()})
                     })
                 })
             })
@@ -1305,109 +1305,117 @@ export default {
                 this.transitionNumber = this.sectors[1];
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
-                        this.getAudPoints().then()
+                        this.getAudPoints().then(() => {this.getAudDescription()})
                     })
                 })
             })
         }
       },
 
-      drawPathTransitionToAud() {
-        if (this.earlyFloor == this.nextFloor) {
-            this.items = [];
-            this.controller();
-        } else {
-            this.earlyFloor = this.floor
-            this.items = [];
-            this.floor = this.nextFloor
+    drawPathTransitionToAud() {
+    if (this.earlyFloor == this.nextFloor) {
+        this.items = [];
+        this.controller();
+    } else {
+        this.earlyFloor = this.floor
+        this.items = [];
+        this.floor = this.nextFloor
 
-            this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
-            this.start = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
-            this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
-            this.transitionNumber = parseInt(this.transitionNumber)
+        this.transitionNumber = this.sectors[this.sectors.length - 1].toString();
+        this.start = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
+        this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
+        this.transitionNumber = parseInt(this.transitionNumber)
 
-            this.transition = 4; // тип перехода от переходного сектора до конечной аудитории
-            this.stairs = 1;
-            this.getSectors().then(() => {
-                this.getCoordinates().then(() => {
-                    this.drawPath().then(() => {
-                        this.nextFloor = this.earlyFloor;
-                        // this.transition = 4;
-                        this.getAudPoints();
-                    })
+        this.transition = 4; // тип перехода от переходного сектора до конечной аудитории
+        this.stairs = 1;
+        this.getSectors().then(() => {
+            this.getCoordinates().then(() => {
+                this.drawPath().then(() => {
+                    this.nextFloor = this.earlyFloor;
+                    // this.transition = 4;
+                    this.getAudPoints().then(() => {this.getAudDescription()});
                 })
             })
+        })
+    }
+    
+    },
+
+    async getAudDescription() {
+    await axios 
+            .get("http://92.63.99.78:8080/api/v1/auditory/description?start=" + this.start + "&end=" + this.end)
+            .then(response => {
+            this.startDescription = response.data['start'].description;
+            this.endDescription = response.data['end'].description;
+        })
+    },
+    
+    async getSectors() {
+        await axios 
+            .get("http://92.63.99.78:8080/api/v1/get-sectors?start=" + this.start + "&end=" + this.end + "&type_transtion_sector=" + this.stairs)
+            .then(response => {
+            this.sectors = response.data['sectors'];
+        })
+        .catch(err => {
+            console.log("error: ", err.response);
+            if (err.response.data['error'] == 'no rows in result set') {
+                window.location.href = "/";
+                alert("Ошибка! Возможно аудитории не существует");
+            } else if (err.response.data['error'] == 'wrong line lenght, exected: %s, received: %s') {
+                window.location.href = "/";
+                alert("Ошибка! Возможно аудитории не существует");
+            } else if (err.response.data['error'].includes("strconv.Atoi: parsing")) {
+                window.location.href = "/";
+                alert("Ошибка! Возможно аудитория не верно задана");
+            } else {
+                window.location.href = "/";
+                alert("Ошибка сервера");
+            }
+        })
+    },
+
+    async getCoordinates() {
+        
+        const json = JSON.stringify({ 
+        start: this.start, 
+        end: this.end, 
+        sectors: toRaw(this.sectors), 
+        transition: this.transition, 
+        transition_number: parseInt(this.transitionNumber)});
+        await axios({
+            method: 'post',
+            url: 'http://92.63.99.78:8080/api/v1/points/points', 
+            data: json 
+        }).then(response => {this.coordinates = response.data});
+    },
+
+    async drawPath() {
+        for (let i = 0; i < this.coordinates.length; i++) {
+        if (this.coordinates[i]['widht'] < 0) {
+            this.coordinates[i]['x'] = this.coordinates[i]['x'] - Math.abs(this.coordinates[i]['widht'])
+            this.coordinates[i]['widht'] = Math.abs(this.coordinates[i]['widht'])
         }
-     
-      },
 
-      async getAudDescription() {
-        await axios 
-              .get("http://92.63.99.78:8080/api/v1/auditory?start=" + this.start + "&end=" + this.end)
-              .then(response => {
-                this.startDescription = response.data['start'].description;
-                this.endDescription = response.data['end'].description;
+        if (this.coordinates[i]['height'] < 0) {
+            this.coordinates[i]['y'] = this.coordinates[i]['y'] - Math.abs(this.coordinates[i]['height'])
+            this.coordinates[i]['height'] = Math.abs(this.coordinates[i]['height'])
+        }
+
+        this.items.push({x:this.coordinates[i]['x'], y:this.coordinates[i]['y'], w:this.coordinates[i]['widht'], h:this.coordinates[i]['height']})
+        }
+    },
+
+    async getAudPoints() {
+    await axios 
+            .get("http://92.63.99.78:8080/api/v1/points/aud-points?start=" + this.start + 
+            "&end=" + this.end + 
+            "&transition=" + this.transition + 
+            "&transition_number=" + this.transitionNumber)
+            .then(response => {
+            this.startAudPoints = response.data['start'];
+            this.endAudPoints = response.data['end'];
             })
-      },
-      
-      async getSectors() {
-          await axios 
-              .get("http://92.63.99.78:8080/api/v1/get-sectors?start=" + this.start + "&end=" + this.end + "&type_transtion_sector=" + this.stairs)
-              .then(response => {
-                this.sectors = response.data['sectors'];
-            })
-            .catch(err => { 
-                if (err.response.data['error'] == 'no rows in result set') {
-                    window.location.href = "/";
-                    alert("Ошибка! Возможно аудитории не существует");
-                } else {
-                    window.location.href = "/";
-                    alert("Ошибка сервера");
-                }
-            })
-      },
-      async getCoordinates() {
-          
-          const json = JSON.stringify({ 
-            start: this.start, 
-            end: this.end, 
-            sectors: toRaw(this.sectors), 
-            transition: this.transition, 
-            transition_number: parseInt(this.transitionNumber)});
-          await axios({
-              method: 'post',
-              url: 'http://92.63.99.78:8080/api/v1/points/points', 
-              data: json 
-          }).then(response => {this.coordinates = response.data});
-      },
-
-      async drawPath() {
-          for (let i = 0; i < this.coordinates.length; i++) {
-            if (this.coordinates[i]['widht'] < 0) {
-                this.coordinates[i]['x'] = this.coordinates[i]['x'] - Math.abs(this.coordinates[i]['widht'])
-                this.coordinates[i]['widht'] = Math.abs(this.coordinates[i]['widht'])
-            }
-
-            if (this.coordinates[i]['height'] < 0) {
-                this.coordinates[i]['y'] = this.coordinates[i]['y'] - Math.abs(this.coordinates[i]['height'])
-                this.coordinates[i]['height'] = Math.abs(this.coordinates[i]['height'])
-            }
-
-            this.items.push({x:this.coordinates[i]['x'], y:this.coordinates[i]['y'], w:this.coordinates[i]['widht'], h:this.coordinates[i]['height']})
-          }
-      },
-
-      async getAudPoints() {
-        await axios 
-              .get("http://92.63.99.78:8080/api/v1/points/aud-points?start=" + this.start + 
-              "&end=" + this.end + 
-              "&transition=" + this.transition + 
-              "&transition_number=" + this.transitionNumber)
-              .then(response => {
-                this.startAudPoints = response.data['start'];
-                this.endAudPoints = response.data['end'];
-              })
-      },
+    },
 
   },
 
