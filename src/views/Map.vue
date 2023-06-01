@@ -606,7 +606,6 @@
             <h1>{{endDescription}}</h1>
         </div>
 
-        <!-- two floor -->
         <div v-if="floor == 2" class="map">
             <svg class="floorTwo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
@@ -965,7 +964,6 @@
             <h1>{{endDescription}}</h1>
         </div>
 
-        <!-- one floor -->
         <div v-if="floor == 1" class="map">
             <svg class="floorOne" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1400" height="925" viewBox="0 0 1679 925">
                 <g id="Слой_2">
@@ -1358,7 +1356,12 @@ export default {
               .then(response => {
                 this.sectors = response.data['sectors'];
             })
-            .catch(err => {  window.location.href = "/"; alert("Ошибка. Скорее всего аудитории не сущетсвует!")})
+            .catch(err => { 
+                if (err.response.status == 500) {
+                    window.
+                    console.log("opa")
+                }
+                console.log("error: ", err.response.statusText) })
       },
       async getCoordinates() {
           
