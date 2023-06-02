@@ -1306,7 +1306,16 @@ export default {
             }
             this.getSectors().then(() => {
                 // получаем номера секторов, и номером переходного сеткора будет первый второй сектор
-                this.transitionNumber = this.sectors[1];
+                if (this.transition == 3) {
+                    if ((this.sectors.length) == 2) {
+                        this.transitionNumber = this.sectors[1];
+                    } else {
+                        this.transitionNumber = this.sectors[2];
+                    }
+                } else {
+                    console.log("data: ", this.sectors[1])
+                    this.transitionNumber = this.sectors[1];
+                }
                 this.getCoordinates().then(() => {
                     this.drawPath().then(() => {
                         this.getAudPoints().then(() => {this.getAudDescription()})
@@ -1329,7 +1338,6 @@ export default {
         this.start = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
         this.transitionNumber = this.transitionNumber[0] + this.transitionNumber[1] + this.end[2] + this.transitionNumber[3]
         this.transitionNumber = parseInt(this.transitionNumber)
-
         this.transition = 4; // тип перехода от переходного сектора до конечной аудитории
         this.stairs = 1;
         this.getSectors().then(() => {
