@@ -71,6 +71,7 @@
         min-width: 470px;
         max-width: 480px;
         position: absolute;
+        z-index: 3000;
     }
 
     @media screen  and (max-width: 1015px) {

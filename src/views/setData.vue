@@ -1,5 +1,21 @@
 <template>
+    
+    <input type="checkbox" id="nav-toggle" hidden>
 
+    <nav class="nav">
+
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+
+        <h2 class="logo"> 
+            <a>Навигатор ДГТУ</a> 
+        </h2>
+        <ul>
+            <li v-on:click="signInModal"><a>Вход для администратора</a></li>
+            <li><a href="#2">Инструкция</a></li>
+            <li><a href="#3">Эвакуация</a></li>
+        </ul>
+    </nav>
+ 
   <body>
       <div class="inputData">
         <input id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud" checked>
@@ -68,8 +84,9 @@
       <p class="social-icon" style="font-size: 20px;font-family: 'Raleway', sans-serif;">Навигационная система ДГТУ</p>
     </footer>
 
-    <button type="submit" class="admin" v-on:click="signInModal">Вход администратора</button>
+    <!-- <button type="submit" class="admin" v-on:click="signInModal">Вход администратора</button> -->
     <!-- <button type="submit" class="evacuation" v-on:click="evacuation">Эвакуация</button> -->
+  
   </body>
   
   <component :is="'script'" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></component>
@@ -256,7 +273,30 @@
     bottom: 0;
   }
 
+  [id='nav-toggle']:checked ~ .nav {
+    left: 0;
+    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
     @media screen  and (max-width: 1015px) {
+      .admin {
+        width: 150px;
+        height: 50px;
+        font-size: 15px;
+        float: right;
+        top: 100px;
+    }
+      [id='nav-toggle']:checked ~ .nav {
+        background: #1f61c5;
+        left: 0;
+        box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+        -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+        -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+        overflow-y: auto;
+    }
       label[for="signin"] { margin-right: 20px; font-size: 11px; }
       label[for="signup"] { margin-right: 20px; font-size: 11px; }
       label[for="importantPlaces"] { margin-right: 20px; font-size: 11px; }
@@ -315,8 +355,8 @@
 
   .inputData .toggle {
     position: absolute;
-    top: -34%;
-    left: 5%;
+    top: -32%;
+    left: 83%;
     width: 60px;
     height: 40px;
     border-radius: 100px;
@@ -328,14 +368,14 @@
 
   .inputData .icon-human {
     position: absolute;
-    top: -40%;
-    left: -20%;
+    top: -39%;
+    left: 57%;
   }
 
   .inputData .icon-elevator {
     position: absolute;
     top: -39%;
-    left: 12%;
+    left: 90%;
   }
 
   .footer .social-icon,
@@ -475,17 +515,17 @@
   z-index: 6;
 }
 
-  .check:checked ~ .track {
-    box-shadow: inset 0 0 0 20px #1f61c5;
-  }
+.check:checked ~ .track {
+  box-shadow: inset 0 0 0 20px #1f61c5;
+}
 
-  .check:checked ~ .switch {
-    right: 2px;
-    left: 22px;
-    transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-    transition-property: left, right;
-    transition-delay: .05s, 0s;
-  }
+.check:checked ~ .switch {
+  right: 2px;
+  left: 22px;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: .05s, 0s;
+}
 
 .switch {
   position: absolute;
@@ -553,5 +593,287 @@
   overflow: hidden;
   transition: all .3s cubic-bezier(.6,0,.4,1);
 }
+ 
+ .nav {
+  font-family: 'Raleway', sans-serif;
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    width: 320px;
+    min-width: 320px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 100%;
+    position: fixed;
+    top: -2%;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно левого края страницы */
+    left: -320px;
+    /* внутренние отступы */
+    padding: 15px 20px;
+    /* плавный переход смещения панели */
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+    /* определяем цвет фона панели */
+    /* background: #1f61c5; */
+    /* поверх других элементов */
+    z-index: 2000;
+}
+
+.nav-toggle {
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно левого края панели */
+    left: 320px;
+    /* отступ от верхнего края панели */
+    top: 0em;
+    /* внутренние отступы */
+    padding: 0.5em;
+    /* определяем цвет фона переключателя
+     * чаще вчего в соответствии с цветом фона панели
+    */
+    background: inherit;
+    /* цвет текста */
+    color: #f7f5f5;
+    /* вид курсора */
+    cursor: pointer;
+    /* размер шрифта */
+    font-size: 2.2em;
+    line-height: 1;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+
+.nav li {
+  font-family: 'Raleway', sans-serif;
+}
+ 
+.nav-toggle:after {
+    content: '\2630';
+    text-decoration: none;
+}
+
+.nav-toggle:hover {
+    color: #f4f4f4;
+}
+ 
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
+
+[id='nav-toggle']:checked ~ main > article {
+    -webkit-transform: translateX(320px);
+    -moz-transform: translateX(320px);
+    transform: translateX(320px);
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+}
+ 
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+ 
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+ 
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+ 
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .nav {
+      width: 100%;
+      box-shadow: none
+    }
+}
+ 
+.nav h2 {
+    font-family: 'Raleway', sans-serif;
+    width: 90%;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+    text-shadow: rgba(250, 247, 247, 0.1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    opacity: 0;
+    transform: scale(0.1, 0.1);
+    -ms-transform: scale(0.1, 0.1);
+    -moz-transform: scale(0.1, 0.1);
+    -webkit-transform: scale(0.1, 0.1);
+    transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -webkit-transform-origin: 0% 0%;
+    transition: opacity 0.8s, transform 0.8s;
+    -ms-transition: opacity 0.8s, -ms-transform 0.8s;
+    -moz-transition: opacity 0.8s, -moz-transform 0.8s;
+    -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
+}
+ 
+.nav h2 a {
+    font-family: 'Raleway', sans-serif;
+    color: #fdfefe;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+[id='nav-toggle']:checked ~ .nav h2 {
+    opacity: 1;
+    transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+}
+
+.nav > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ 
+.nav > ul > li {
+    line-height: 2.5;
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
+    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
+    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
+    transition: opacity .5s .1s, transform .5s .1s;
+}
+ 
+[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+ 
+/* определяем интервалы появления пунктов меню */
+ 
+.nav > ul > li:nth-child(2) {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
+    transition: opacity .5s .2s, transform .5s .2s;
+}
+ 
+.nav > ul > li:nth-child(3) {
+    -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
+    transition: opacity .5s .3s, transform .5s .3s;
+}
+ 
+.nav > ul > li:nth-child(4) {
+    -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
+    transition: opacity .5s .4s, transform .5s .4s;
+}
+ 
+.nav > ul > li:nth-child(5) {
+    -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
+    transition: opacity .5s .5s, transform .5s .5s;
+}
+ 
+.nav > ul > li:nth-child(6) {
+    -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
+    transition: opacity .5s .6s, transform .5s .6s;
+}
+ 
+.nav > ul > li:nth-child(7) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
+    transition: opacity .5s .7s, transform .5s .7s;
+}
+ 
+ 
+.nav > ul > li > a {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: #fdfefe;
+  width: 100%;
+  text-decoration: none;
+  /* плавный переход */
+  -webkit-transition: color .5s ease, padding .5s ease;
+  -moz-transition: color .5s ease, padding .5s ease;
+  transition: color .5s ease, padding .5s ease;
+}
+ 
+.nav > ul > li > a:hover,
+
+.nav > ul > li > a:focus {
+    color: white;
+    padding-left: 15px;
+}
+
+ 
+.nav > ul > li > a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    -webkit-transition: width 0s ease;
+    transition: width 0s ease;
+}
+ 
+.nav > ul > li > a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: #fdfefe;
+    -webkit-transition: width .5s ease;
+    transition: width .5s ease;
+}
+ 
+.nav > ul > li > a:hover:before {
+    width: 0%;
+    background: #fdfefe;
+    -webkit-transition: width .5s ease;
+    transition: width .5s ease;
+}
+ 
+.nav > ul > li > a:hover:after {
+    width: 0%;
+    background: transparent;
+    -webkit-transition: width 0s ease;
+    transition: width 0s ease;
+}
+
 
 </style>
