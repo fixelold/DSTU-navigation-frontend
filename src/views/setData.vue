@@ -10,7 +10,7 @@
             <a>Навигатор ДГТУ</a> 
         </h2>
         <ul>
-            <li v-on:click="signInModal"><a>Вход в панель администратора</a></li>
+            <li v-on:click="signInModal"><a>Вход для администратора</a></li>
             <li><a href="#2">Инструкция</a></li>
             <li><a href="#3">Эвакуация</a></li>
         </ul>
@@ -355,8 +355,8 @@
 
   .inputData .toggle {
     position: absolute;
-    top: -34%;
-    left: 5%;
+    top: -32%;
+    left: 83%;
     width: 60px;
     height: 40px;
     border-radius: 100px;
@@ -368,14 +368,14 @@
 
   .inputData .icon-human {
     position: absolute;
-    top: -40%;
-    left: -20%;
+    top: -39%;
+    left: 57%;
   }
 
   .inputData .icon-elevator {
     position: absolute;
     top: -39%;
-    left: 12%;
+    left: 90%;
   }
 
   .footer .social-icon,
@@ -515,17 +515,17 @@
   z-index: 6;
 }
 
-  .check:checked ~ .track {
-    box-shadow: inset 0 0 0 20px #1f61c5;
-  }
+.check:checked ~ .track {
+  box-shadow: inset 0 0 0 20px #1f61c5;
+}
 
-  .check:checked ~ .switch {
-    right: 2px;
-    left: 22px;
-    transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-    transition-property: left, right;
-    transition-delay: .05s, 0s;
-  }
+.check:checked ~ .switch {
+  right: 2px;
+  left: 22px;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: .05s, 0s;
+}
 
 .switch {
   position: absolute;
@@ -593,22 +593,16 @@
   overflow: hidden;
   transition: all .3s cubic-bezier(.6,0,.4,1);
 }
-
-
-
-/**
- * Переключаемая боковая панель навигации
- * выдвигающаяся по клику слева
- */
  
  .nav {
+  font-family: 'Raleway', sans-serif;
     /*  ширна произвольная, не стесняйтесь экспериментировать */
     width: 320px;
     min-width: 320px;
     /* фиксируем и выставляем высоту панели на максимум */
     height: 100%;
     position: fixed;
-    top: 0;
+    top: -2%;
     bottom: 0;
     margin: 0;
     /* сдвигаем (прячем) панель относительно левого края страницы */
@@ -624,12 +618,7 @@
     /* поверх других элементов */
     z-index: 2000;
 }
- 
-/**
- * Кнопка переключения панели
- * тег <label>
- */
- 
+
 .nav-toggle {
     /* абсолютно позиционируем */
     position: absolute;
@@ -644,7 +633,7 @@
     */
     background: inherit;
     /* цвет текста */
-    color: #070000;
+    color: #f7f5f5;
     /* вид курсора */
     cursor: pointer;
     /* размер шрифта */
@@ -657,77 +646,41 @@
     -moz-transition: color .25s ease-in-out;
     transition: color .25s ease-in-out;
 }
- 
-/* определяем текст кнопки 
- * символ Unicode (TRIGRAM FOR HEAVEN)
-*/
+
+
+.nav li {
+  font-family: 'Raleway', sans-serif;
+}
  
 .nav-toggle:after {
     content: '\2630';
     text-decoration: none;
 }
- 
-/* цвет текста при наведении */
- 
+
 .nav-toggle:hover {
     color: #f4f4f4;
 }
- 
-/**
- * Скрытый чекбокс (флажок)
- * невидим и недоступен :)
- * имя селектора атрибут флажка
- */
  
 [id='nav-toggle'] {
     position: absolute;
     display: none;
 }
- 
-/**
- * изменение положения переключателя 
- * при просмотре на мобильных устройствах
- * когда навигация раскрыта, распологаем внутри панели
-*/
- 
+
 [id='nav-toggle']:checked ~ .nav > .nav-toggle {
     left: auto;
     right: 2px;
     top: 1em;
 }
- 
-/**
- * Когда флажок установлен, открывается панель
- * используем псевдокласс:checked
- */
- 
- 
-/* 
- * смещение контента страницы
- * на размер ширины панели,
- * фишка необязательная, на любителя
-*/
- 
+
 [id='nav-toggle']:checked ~ main > article {
     -webkit-transform: translateX(320px);
     -moz-transform: translateX(320px);
     transform: translateX(320px);
 }
- 
-/*
- * изменение символа переключателя,
- * привычный крестик (MULTIPLICATION X), 
- * вы можете испльзовать любой другой значок
-*/
- 
+
 [id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
     content: '\2715';
 }
- 
-/**
- * профиксим баг в Android <= 4.1.2
- * см: http://timpietrusky.com/advanced-checkbox-hack
- */
  
 body {
     -webkit-animation: bugfix infinite 1s;
@@ -738,11 +691,6 @@ body {
       padding: 0;
     }
 }
- 
-/**
- * позаботьтимся о средних и маленьких экранах
- * мобильных устройств
- */
  
 @media screen and (min-width: 320px) {
     html,
@@ -764,16 +712,13 @@ body {
     }
 }
  
-/**
- * Формируем стиль заголовка (логотип) панели 
-*/
- 
 .nav h2 {
+    font-family: 'Raleway', sans-serif;
     width: 90%;
     padding: 0;
     margin: 10px 0;
     text-align: center;
-    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+    text-shadow: rgba(250, 247, 247, 0.1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
     font-size: 1.3em;
     line-height: 1.3em;
     opacity: 0;
@@ -792,14 +737,12 @@ body {
 }
  
 .nav h2 a {
-    color: #dadada;
+    font-family: 'Raleway', sans-serif;
+    color: #fdfefe;
     text-decoration: none;
     text-transform: uppercase;
 }
- 
- 
-/*плавное появление заголовка (логотипа) при раскрытии панели */
- 
+
 [id='nav-toggle']:checked ~ .nav h2 {
     opacity: 1;
     transform: scale(1, 1);
@@ -807,13 +750,7 @@ body {
     -moz-transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
 }
- 
-/**
- * формируем непосредственно само меню
- * используем неупорядоченный список для пунктов меню
- * прикрутим трансфомации и плавные переходы
- */
- 
+
 .nav > ul {
     display: block;
     margin: 0;
@@ -875,39 +812,29 @@ body {
 }
  
  
-/**
- * оформление ссылок пунктов меню
- */
- 
 .nav > ul > li > a {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 1.2em;
-    color: #dadada;
-    width: 100%;
-    text-decoration: none;
-    /* плавный переход */
-    -webkit-transition: color .5s ease, padding .5s ease;
-    -moz-transition: color .5s ease, padding .5s ease;
-    transition: color .5s ease, padding .5s ease;
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: #fdfefe;
+  width: 100%;
+  text-decoration: none;
+  /* плавный переход */
+  -webkit-transition: color .5s ease, padding .5s ease;
+  -moz-transition: color .5s ease, padding .5s ease;
+  transition: color .5s ease, padding .5s ease;
 }
  
-/**
- * состояние ссылок меню при наведении
- */
- 
 .nav > ul > li > a:hover,
+
 .nav > ul > li > a:focus {
     color: white;
     padding-left: 15px;
 }
- 
-/**
- * линия подчеркивания ссылок меню
- */
+
  
 .nav > ul > li > a:before {
     content: '';
@@ -929,19 +856,14 @@ body {
     bottom: 0;
     height: 1px;
     width: 100%;
-    background: #3bc1a0;
+    background: #fdfefe;
     -webkit-transition: width .5s ease;
     transition: width .5s ease;
 }
  
-/**
- * анимируем линию подчеркивания 
- * ссылок при наведении
- */
- 
 .nav > ul > li > a:hover:before {
     width: 0%;
-    background: #3bc1a0;
+    background: #fdfefe;
     -webkit-transition: width .5s ease;
     transition: width .5s ease;
 }
