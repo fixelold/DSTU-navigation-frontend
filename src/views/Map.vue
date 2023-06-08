@@ -1295,6 +1295,7 @@ export default {
             })
             
         } else {
+            console.log("Work")
             this.nextFloor = this.end[2]
             this.checked = this.$cookies.get("checked");
             if (this.checked == 'true') {
@@ -1305,6 +1306,7 @@ export default {
                 this.stairs = 2;
             }
             this.getSectors().then(() => {
+                console.log("data: ", this.sectors)
                 // получаем номера секторов, и номером переходного сеткора будет первый второй сектор
                 if (this.transition == 3) {
                     if ((this.sectors.length) == 2) {
@@ -1313,7 +1315,6 @@ export default {
                         this.transitionNumber = this.sectors[2];
                     }
                 } else {
-                    console.log("data: ", this.sectors[1])
                     this.transitionNumber = this.sectors[1];
                 }
                 this.getCoordinates().then(() => {
@@ -1369,7 +1370,6 @@ export default {
             this.sectors = response.data['sectors'];
         })
         .catch(err => {
-            console.log("error: ", err.response);
             if (err.response.data['error'] == 'no rows in result set') {
                 window.location.href = "/";
                 alert("Ошибка! Возможно аудитории не существует");
