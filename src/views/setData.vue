@@ -15,7 +15,7 @@
             <li><a href="#3">Эвакуация</a></li>
         </ul>
     </nav>
-
+ 
   <body>
       <div class="inputData">
         <input id="signin" v-model="radioValue" v-on:click="setData" name="action" type="radio" value="aud" checked>
