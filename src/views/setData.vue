@@ -1,6 +1,6 @@
 <template>
     
-    <input type="checkbox" id="nav-toggle" hidden>
+    <!-- <input type="checkbox" id="nav-toggle" hidden>
 
     <nav class="nav">
 
@@ -14,7 +14,7 @@
             <li><a href="#2">Инструкция</a></li>
             <li><a href="#3">Эвакуация</a></li>
         </ul>
-    </nav>
+    </nav> -->
  
   <body>
       <div class="inputData">
