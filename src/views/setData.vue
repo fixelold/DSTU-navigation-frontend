@@ -11,7 +11,7 @@
         </h2>
         <ul>
             <li v-on:click="signInModal"><a>Вход для администратора</a></li>
-            <li><a href="#2">Инструкция</a></li>
+            <li><a href="/instruction">Инструкция</a></li>
             <li><a href="#3">Эвакуация</a></li>
         </ul>
     </nav>
