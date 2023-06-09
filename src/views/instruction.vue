@@ -49,4 +49,15 @@ export default {
     p {
         text-align: center;
     }
+
+    @media screen  and (max-width: 1015px) {
+        .primer1 img {
+        width: 60%;
+        text-align: center;
+    }
+
+    .primer3 img {
+        width: 20%;
+    }
+    }
 </style>
