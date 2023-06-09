@@ -1282,7 +1282,10 @@ export default {
         this.end = this.$cookies.get("end");
         this.floor = this.start[2];
 
-
+        if (this.start == "Вход") {
+            this.start = '1-000';
+            this.floor = 1;
+        }
         if (this.start[2] == this.end[2]) {
             this.stairs = 1;
             this.transition = 1; // перехода между этажами нет
