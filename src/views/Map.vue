@@ -1156,7 +1156,7 @@
                     <rect x="592.6" y="408.5" class="st1" width="3" height="65"/>
                     <text transform="matrix(0.8484 0 0 1 527.7004 441.6387)" class="st3 st52">1-105</text>
                     <text transform="matrix(0.9 0 0 1 601.0239 441.7871)" class="st3 st53">1-103</text>
-                    <text transform="matrix(0.8484 0 0 1 812.5696 539.5)" class="st3 st54">Выход</text>
+                    <text transform="matrix(0.8484 0 0 1 812.5696 539.5)" class="st3 st54">Вход/Выход</text>
                     <text transform="matrix(0.8484 0 0 1 636.2451 441.8174)" class="st3 st55">1-102</text>
                     <rect x="217.5" y="87.3" class="st1" width="53" height="3"/>
                     <rect x="132.4" y="164.7" class="st1" width="3" height="51.8"/>
@@ -1273,6 +1273,7 @@ export default {
       response: [],
       transitionNumberForAudColoring: '', // номер переходного сектора для отрисовки
       earlyFloor: '', // номер прошлого этажа
+      special_places: "",
   };
 },
 
@@ -1282,10 +1283,36 @@ export default {
         this.end = this.$cookies.get("end");
         this.floor = this.start[2];
 
-        if (this.start == "Вход") {
-            this.start = '1-000';
+        if (this.start == "Вход" || this.start == "вход") {
+            this.start = '1-1/01';
             this.floor = 1;
+            this.special_places = 1;
         }
+
+        if (this.end == "Выход" || this.end == "выход") {
+            this.end = '1-1/01';
+        }
+
+        if (this.end == "Музей" || this.end == "музей") {
+            this.end = '1-1/02';
+        }
+
+        if (this.end == "Мужской туалет" || this.end == "мужской туалет") {
+            if (this.start[3] > 5) {
+                this.end = '1-' + this.floor + '/' + this.floor + '4'
+            } else {
+                this.end = '1-' + this.floor + '/' + this.floor + '2'
+            }
+        }
+
+        if (this.end == "Женский туалет туалет" || this.end == "женский туалет") {
+            if (this.start[3] > 5) {
+                this.end = '1-' + this.floor + '/' + this.floor + '1'
+            } else {
+                this.end = '1-' + this.floor + '/' + this.floor + '3'
+            }
+        }
+
         if (this.start[2] == this.end[2]) {
             this.stairs = 1;
             this.transition = 1; // перехода между этажами нет
@@ -1298,7 +1325,6 @@ export default {
             })
             
         } else {
-            console.log("Work")
             this.nextFloor = this.end[2]
             this.checked = this.$cookies.get("checked");
             if (this.checked == 'true') {
