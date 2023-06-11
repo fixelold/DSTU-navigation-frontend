@@ -1509,28 +1509,28 @@ export default {
 
 @media screen  and (max-width: 970px) {
     .map .floorThree {
-        width: 400px;
+        width: 365px;
         height: 300px;
         margin-top: -10%;
         margin-left: -14%;
     }
 
     .map .floorFour {
-        width: 400px;
+        width: 365px;
         height: 300px;
         margin-top: -10%;
         margin-left: -14%;
     }
 
     .map .floorOne {
-        width: 400px;
+        width: 365px;
         height: 300px;
         margin-top: -10%;
         margin-left: -14%;
     }
 
     .map .floorTwo {
-        width: 400px;
+        width: 365px;
         height: 300px;
         margin-top: -10%;
         margin-left: -14%;
